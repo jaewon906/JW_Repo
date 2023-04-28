@@ -16,7 +16,7 @@ function contentsSelect(contentsData, resultData, a, c, e) {
         //  f = a.find(x=>x.id===e.target.id)
         //  a -= f.price
         break;
-      
+      // ?1
       default:
       }
     }
