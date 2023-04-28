@@ -1,0 +1,50 @@
+#container3 {
+    /* width: 99vw; */
+    height: 100vh;
+    background-image:URL('../../files/porsche_interior.jpg');
+    background-position: center center;
+    background-size: cover;
+    padding:2% 5%;
+    overflow:auto;
+    
+
+}
+/* 기본적으로 flex는 가로 한 줄로 정렬되기 때문에 세로로 정렬하고 싶으면 flex-direction을 세로로 지정하고
+justify-content로 지정해야한다.*/
+#container3 > main{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    width:50%;
+    height:100%;
+}
+#container3 .list{
+    
+    background-color: white;
+    border:1px red solid;
+    cursor: pointer;
+    line-height:35px;
+    padding:3%;
+    margin:1%;
+    min-width:300px;
+    max-width:600px;
+    
+}
+#container3 .list:hover{
+    animation:colorChange 0.5s;
+    animation-fill-mode: both;
+
+}
+@keyframes colorChange{
+    from{}
+    to{color:green;
+        background-color: red;}
+}
+#container3 .content{
+    color:black;
+}
+#container3 .title{
+    font-weight: 700;
+    font-size:30px;
+    color:black;
+}

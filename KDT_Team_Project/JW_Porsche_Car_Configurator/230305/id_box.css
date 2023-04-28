@@ -1,0 +1,26 @@
+.aa [id *= "_box"]{
+    margin-top:5px;
+    background-color:rgb(201, 168, 168);
+    width:90%; 
+    height:500px;
+    display:none;
+}
+.aa #exterior_colour_box{
+    background-color: aquamarine;
+    margin-top:5px;
+    /* background-color:white; */
+    width:90%; 
+    
+    
+}
+#wheels_box{}
+#painted_wheels_box{}
+#wheel_accessories_box{}
+#interior_box{}
+#seats_box{}
+#stiching_box{}
+#epuipment_packages_box{}
+#exterior_box{}
+#chassis_box{}
+#leather_deco_box{}
+#paint_exterior_box{}

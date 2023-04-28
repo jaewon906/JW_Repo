@@ -1,0 +1,88 @@
+@media (width<=600px){
+     header, main, #progressBar, #board_contents_list{
+        width:600px;
+     }
+     header > #signIn_Up{
+        display:none;
+     }
+     
+
+}
+*{
+    margin:0;padding:0;font-family: "kakaoRegular";
+}
+
+a {
+    text-decoration: none; 
+}
+
+header {
+    width:100vw;
+    height:50px;
+    background-color: rgb(96, 151, 243);
+    display:flex;
+    justify-content: space-between;
+    position:sticky;
+    top:0px;
+    z-index:10;
+    
+}
+header * {
+    color:white;
+}
+
+/* 헤더의 리스트 (예정) */
+header > #header_list {
+    width:60%;
+    height:100%;
+    display:flex;
+    align-items: center;
+      
+}
+#header_list > #companyLogo {
+    font-family: cursive;
+    font-size: 30px;
+    margin-left: 100px;
+
+}
+/* 로그인 로그아웃 회원가입 회원탈퇴 */
+header > #signIn_Up {
+    width:400px;
+    height:100%;
+    display : flex;
+    justify-content: end;
+    align-items: center;
+}
+#signIn_Up  p , #signIn_Up a{
+    font-size: 12px;
+}
+#signIn_Up > #welcome{
+    display: flex;
+    align-items: center;
+    width:auto;
+    height:100%;
+}
+#signIn_Up > #signUp, #signIn_Up >.signIn, #signIn_Up >#withdrawal, #signIn_Up >#signOut {
+    width:15%;
+    height:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#signIn_Up > #signOut{
+    display: none;
+}
+#progressBar {
+    width:100%;
+    height:5px;
+    background:rgb(255, 238, 0);
+    position:sticky;
+    top:50px;
+    display:none;
+    z-index: 10;
+
+}
+body::-webkit-scrollbar{
+    display:none;
+}

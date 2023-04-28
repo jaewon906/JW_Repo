@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <!-- favicon -->
+    <link rel="icon" href="../img/icecream_favicon.png">
+    <!-- script -->
+    <script src="https://kit.fontawesome.com/ab37fbcfbd.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <!-- 카카오맵 api -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2216cc880125ad51f34ca50e7a457005"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+   
+    <title>사람과 사람을 잇다. 컴패니</title>
+</head>
+
+<body>
+    <div id="container">
+        <!-- 모달 창 시작 -->
+        <div id="modal_aroundBlur">
+            <div id="modal">
+                <div id="modal_head"><i style="margin-left: -10px;">company</i><i class="fa-solid fa-x"></i></div>
+                <div id="modal_main">
+                    <div id=IDPW_box>
+                        <input id="inputID" placeholder="아이디" focus />
+                        <input id="inputPW" type="password" placeholder="비밀번호" />
+                    </div>
+                    <div id="loginFailText"></div>
+                    <button id="logIn">로그인</button><br />
+                    <div id="doSignUp">
+                        <p>아직 회원이 아니세요?</p> <a href="../HTML/signUp.html"><button type="button">회원가입</button></a>
+                    </div>
+                    <div id="saveIDANdForgotIDPWDiv">
+                        <div id="saveID">
+                            <input id="saveIDCheckBox" type="checkbox">
+                            <p>아이디저장</p>
+                        </div>
+                        <div id="forgotIDPW">
+                            <a href="">아이디 찾기</a>
+                            <a href>비밀번호 찾기</a>
+                        </div>
+                    </div>
+                    <div id="or_box">
+                        <p style="font-size: 10px; margin-top: 10px;">또는</p>
+                    </div>
+                </div>
+                <div id="modal_foot">
+                    <div>
+                        <a href=""><img src="../img/kakao_logo.png" /></a>
+                        <a href=""><img src="../img/naver_logo.png" /></a>
+                        <a href=""><img src="../img/instagram_logo.png" /></a>
+                        <a href=""><img src="../img/facebook_logo.png" /></a>
+                        <a href=""><img src="../img/twitter_logo.png" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 모달 창 끝 -->
+        <!-- 헤더 시작 -->
+        <header>
+            <div id="header_list">
+                <div id="companyLogo">
+                    <a href="index.html"><i>Company</i></a>
+                </div>
+            </div>
+            <div id="signIn_Up">
+                <div id="welcome">
+
+                </div>
+                <div class="signIn">
+                    <a href="#">로그인</a>
+                </div>
+                <div id="signOut">
+                    <a href="#">로그아웃</a>
+                </div>
+                <div id="signUp">
+                    <a href="../HTML/signUp.html">회원가입</a>
+                </div>
+                <div id="withdrawal">
+                    <a href="">회원탈퇴</a>
+                </div>
+            </div>
+        </header>
+        <!-- 헤더 끝 -->
+        <!-- 상단 스크롤 바 -->
+        <div style="width:100vw; height:10px; position: sticky; top:50px"><div id="progressBar"></div></div>
+        <main><br/><br/><br/><p style="font-size:calc(4vw);font-weight: bold;">컴패니:</p><br/><br/><p style="font-size:calc(3vw); font-weight: bold;">커뮤니티에서 시작하는 새로운 관계, 새로운 시작.</p>
+            <div id="container1">
+                <a  href="../HTML/notice_board.html">
+                    <div style="display:none" id="board1">게시판</div>
+                </a>
+                <a  href="notice_board2.html">
+                    <div style="display:none" id="board2">채팅</div>
+                </a>
+            </div>
+
+            <div id="container2">
+                <div style="width:100%; height:13%; position:sticky; top:calc(50vh - 400px); z-index: 1;">
+                    <div id="main_content1" >
+                        <div id="text_main_content1">
+                            <div>안녕하세요 컴패니입니다.</div>
+                        </div>
+                        <div id="img_main_content1">
+                            <img src="../img/mainpageImg4.jpg"/>
+                        </div>
+                    </div>
+                    <div id="main_content2" style="opacity:0;">
+                        <div id="text_main_content2">
+                            <div>저희의 기업명은 company로 회사라는 의미와 친구라는 의미가 담겨 있습니다.<br/><br/>
+                                 "사람과 사람을 잇다" 라는 저희의 비전처럼 성장하기 위해 최선을 다하겠습니다.</div>
+                        </div>
+                        <div id="img_main_content2">
+                            <img src="../img/businessImg/businessImg2.jpg"/>
+                        </div>
+                    </div>   
+                    <div id="main_content3" style="opacity:0;">
+                        <div id="text_main_content3">
+                            <div>다양한 국가와 연령의 사용자들과 지금 만나보세요!</div>
+                        </div>
+                        <div id="img_main_content3">
+                            <img src="../img/mainpageImg2.jpg"/>
+                        </div>
+                    </div>             
+                    <div id="main_content4" style="opacity:0;">
+                        <div id="text_main_content4">
+                            <div>그럼, 만나러 가볼까요?</div>
+                        </div>
+                        <div id="img_main_content4">
+                            <img src="../img/mainpageImg3.jpg"/>
+                        </div>
+                    </div>             
+                </div>
+            </div>
+
+            <div id="container3">
+                <div>
+                    <p id="right_arrow_icon">&gt; &gt; &gt; &gt;</p>
+                </div>
+                <div>
+                    <p id="clickMoveStartbtn">만나러가기</p>
+                </div>
+                <div>
+                    <p id="left_arrow_icon">&lt; &lt; &lt; &lt;</p>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <div id="comeToUsBox">찾아 오시는길 <br>
+                주소 : 경기 성남시 분당구 금곡동 114-2<br>
+                대표 전화 : 031-232-7865<br>
+                사업자 등록번호 : 234-76564-34534<br>
+                대표자 명 : 박재원<br>
+                </div>
+            <div id="map" style="width:400px; height:200px; border:1px solid; margin-top: 10px;"></div>
+        </footer>
+
+    </div>
+    <script>
+        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(37.35048060000017, 127.10298069999928), //지도의 중심좌표.
+            level: 3 //지도의 레벨(확대, 축소 정도)
+        };
+
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+    </script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

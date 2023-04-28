@@ -1,0 +1,65 @@
+@media (width<=900px){
+    header{
+        width:100%;
+
+    }
+    header #conf_lists{
+        width:100%
+    }
+    header #icons_contactDealer{
+        display:none;
+    }
+    main {
+        /* 기존의 display : inline-flex */
+        width:100%;
+        height:100%;
+        display:block;
+    }
+    aside{
+        width:100%;
+        height:100%;
+        display:inline-block;
+    }
+    main section{
+        width:100%;
+        height:calc(100vw * 9/16);  
+    
+    }
+
+    section #car_name{
+        display:none;
+    }
+    section #car_image{
+        margin-left:-5px;
+        width:100%;
+        height:100%;
+        
+    }
+    aside #price{
+        height:150px;
+        top:calc((100vw * 9/16) + 50px);
+    }
+    #price #total_price{
+        height:40px;
+    }
+    #price #base_price{
+        height:80px;
+    }
+    /* #list{
+        display:none;
+    } */
+    #list .list_box{
+        
+        top:calc((100vw) * 9/16 + 198px);
+    }
+    #price #car_name_1{
+        display: flex;
+        height:50px;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+    #car_name_1 #car_name_1_1,#car_name_1 i {
+        font-size:20px;
+    }
+}

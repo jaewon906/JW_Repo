@@ -1,0 +1,45 @@
+*{
+  margin:0; padding:0;
+}
+.container{
+  width:100vw;
+  height:100vh;
+}
+.header{
+  width:100vw;
+  height:50px;
+  background-color: aqua;
+  display:flex;
+}
+.headerLeft{
+  width:50%;
+  height:100%;
+  background-color: blue;
+}
+.headerRight{
+  width:50%;
+  height:100%;
+  background-color:blueviolet;
+}
+.main{
+
+  display:flex;
+}
+.asideRight{
+  width:20vw;
+  height:500px;
+}
+.section{
+  width:60vw;
+  height:500px;
+  background-color:aquamarine;
+}
+.asideLeft{
+  width:20vw;
+  height:500px;
+}
+.footer{
+  width:100vw;
+  height:50px;
+  background-color: bisque;
+}

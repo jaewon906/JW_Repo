@@ -1,0 +1,150 @@
+main {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+textarea{
+    resize: none;
+    font-size: 13px;
+}
+main > #write_main{
+    width:80%;
+    height:450px;
+    margin-top:50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#write_main > #writeTitleAndSelectType{
+    width:80%;
+    height:100px;
+    display: flex;
+    justify-content: space-between;
+
+}
+#writeTitleAndSelectType > #write_title{
+    width:60%;
+}
+#writeTitleAndSelectType > #select_type{
+    width:30%;
+}
+#write_title > textarea{
+    width:100%;
+    height:40px;
+}
+#select_type > select{
+    width:100%;
+    height:40px;
+}
+
+#write_main > #write_here{
+    width:80%;
+    height:80%;
+    margin-top:30px;
+}
+#write_here > textarea{
+    width:100%;
+    height:300px;
+}
+textarea{
+    height:20px;
+    border:1px solid rgba(128, 128, 128, 0.438);
+    border-radius:3px;
+}
+select{
+    height:20px;
+    border:1px solid rgba(128, 128, 128, 0.438);
+    border-radius:3px;
+}
+textarea:hover{
+    animation : inputBorderColorChange 0.3s;
+    animation-fill-mode:both;
+
+}
+select:hover{
+    animation : inputBorderColorChange 0.3s;
+    animation-fill-mode:both;
+
+}
+@keyframes inputBorderColorChange{
+    from{}
+    to{
+        border-color:rgb(96, 151, 243)
+    }
+}
+textarea:focus{
+
+  /* input 영역을 focus했을 때 검은 경계선이 활성화되는데 
+  border 이외에도 outline이라는 개념이 있다. */
+  outline: none;
+  animation : inputAreaColorChange 0.3s;
+  animation-fill-mode: both;
+
+}
+select:focus{
+
+  /* input 영역을 focus했을 때 검은 경계선이 활성화되는데 
+  border 이외에도 outline이라는 개념이 있다. */
+  outline: none;
+  animation : inputAreaColorChange 0.3s;
+  animation-fill-mode: both;
+
+}
+@keyframes inputAreaColorChange{
+    from{}
+    to{ 
+        box-shadow: 0px 0px  0px 2px rgba(91, 150, 245, 0.541);
+        border-color:rgb(96, 151, 243);
+    }
+}
+main > #sendToFileBox{
+    width: 64%;
+    height: auto;
+
+}
+#sendToFileBox > #addSendToFile{
+    margin:20px 0px;
+    width:50px;
+    height:50px;
+    background-color: rgb(96, 151, 243);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sendToFileBox > #addSendToFile:hover{
+    scale:1.1;
+    box-shadow: 1px 1px 5px 1px gray;
+}
+#sendToFileBox > #sendToFile{
+    width:auto;
+    height:20px;
+    border:1px solid rgba(128, 128, 128, 0.438);
+    margin:5px 0px;
+    display:flex;
+    font-size: 12px;
+    line-height: 22px;
+}
+main > #button_box{
+    width:250px;
+    display: flex;
+    justify-content: space-around;
+}
+#button_box button{
+    font-size: 11px;
+    font-weight: 600;
+    width:100px;
+    height:25px;
+    border-radius: 10px;
+    border:1px solid rgba(128, 128, 128, 0.438);
+} 
+#button_box > a:nth-child(1) > button {
+    background-color: rgb(96, 151, 243);
+    color:white;
+}
+#button_box button:hover{
+    box-shadow: 1px 1px 5px 1px gray;
+    scale:1.1;
+}

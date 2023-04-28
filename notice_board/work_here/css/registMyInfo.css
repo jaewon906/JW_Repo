@@ -1,0 +1,95 @@
+main{
+    width:100vw;
+    height:90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+main > p:nth-child(1){
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+main > #registMyInfo{
+    margin-top: 50px;
+    width:700px;
+    height:600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#registMyInfo > [id *= Box]{
+    width:50%;
+    height:80px;
+    line-height: 30px;
+
+}
+#registMyInfo > [id *= Box] > p{
+    font-size: 12px;
+    font-weight: bold;
+}
+#registMyInfo > [id *= Box] > input{
+    width:100%;
+    height:30px;
+    border:1px solid rgba(128, 128, 128, 0.438);
+    border-radius: 3px;
+    outline: none;
+    
+}
+
+#registMyInfo > [id *= Box] > input:hover{
+    animation: inputBorderColorChange 0.3s;
+    animation-fill-mode: both;
+}
+#registMyInfo > [id *= Box] > input:focus{
+    animation: inputAreaColorChange 0.3s;
+    animation-fill-mode: both;
+}
+@keyframes inputBorderColorChange{
+    from{}
+    to{
+        border-color:rgb(96, 151, 243)
+    }
+}
+@keyframes inputAreaColorChange{
+    from{}
+    to{ 
+        box-shadow: 0px 0px  0px 2px rgba(91, 150, 245, 0.541);
+        border-color:rgb(96, 151, 243);
+    }
+}
+#registMyInfo > #createMyAccountButton{
+    width:50%;
+    height:30px;
+    margin-top: 30px;
+    color:white;
+    background-color: rgb(96, 151, 243);
+    border:1px solid rgba(128, 128, 128, 0.226);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#registMyInfo > #createMyAccountButton:hover{
+
+    scale:1.05;
+}
+#registMyInfo > div:nth-child(7){
+    margin-top: 40px;
+    width: 33%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+   
+}
+#registMyInfo > div:nth-child(7) > p{
+    color:rgb(96, 151, 243)
+}
+#registMyInfo > div:nth-child(7) .signIn:hover{
+    cursor: pointer;
+    animation: fontColorChange 0.3s;
+    animation-fill-mode: both;
+}
+@keyframes fontColorChange{
+    from{}
+    to{color:red}
+}

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>info_tech</title>
+    <style>
+        *{ padding: 0;
+            margin: 0;}
+    
+        #f_header { background-color: #f0f0f0;
+                   padding: 40px;
+                 width: 100%;}
+        h1 { font-size: 40px;
+                     margin-left: 60px;
+                     margin-bottom: 20px;
+                     padding-top: 20px;}
+        #header { display: flex;
+                  gap: 40px;
+                  font-size: 16px;
+                  font-weight: bold;
+                  margin-left: 60px;
+                  margin-bottom: 30px;
+                  }
+        small { font-size: 5px;
+                font-weight: normal;}
+        #inline1, #inline2, #inline3, #inline4 {
+            padding-right: 20px;
+            border-right: 1px solid #e0e0e0;}
+      #main { margin-top: 60px;}
+      #front_small { font-size: 5px;
+                    width: 50%;
+                  margin-left: 60px ;}
+       #back_small{ font-size: 14px;
+                    width: 35%;
+                 margin-top: 30px;}
+      #main_sub { margin-top: 30px;
+                    margin-left: 60px;}
+        h2 { margin-bottom: 10px;
+            font-size: 30px;}
+        #bold{ border: 1px solid #e0e0e0;
+            width: 620px;
+            margin-bottom: 20px; }
+        ul li { list-style-type: none;}
+        h3{ font-size: 23px;
+            padding: 20px;
+            margin-left: -20px;
+            cursor: pointer;}
+        .techtitle1,.techtitle2,.techtitle3,.techtitle4,.techtitle5 { display: flex;       
+                    line-height: 50px;}
+       
+        ul li{border-bottom: 1px solid #e0e0e0;
+                width: 310px;
+             }
+        #leftline li { color: #606060;
+                     
+                        font-size: 15px;}
+        #rightline li { font-size: 20px;
+                       }
+        #leftline1 li{color: #606060;
+            font-size: 15px;
+         padding-bottom: 7px;}
+           
+        #rightline1 li{font-size: 20px;}
+
+        #bold2 { border: 1px solid #e0e0e0;
+            margin-top: 30px;
+        margin-left: 60px;
+        width: 620px}
+        #footer { padding: 40px;
+            background-color: #061a25;
+            color: white;
+           width: 100%;}
+        #footer p { margin-left: 30px;}
+        #carimg { 
+              /* position: absolute; */
+                 /* top: 350px; */
+                 /* left: 1000px; */
+                 width: 200px;
+        height: 400px;
+        background-image: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b5b39dcd-ad8d-407e-9550-8b388c2b2bb8/detail_img.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230228%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230228T055132Z&X-Amz-Expires=86400&X-Amz-Signature=c54892fb0b0bd34cf0e8ef6a67aa93e51f1a3acb0a8a75a401b99d999a05f146&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22detail_img.png%22&x-id=GetObject");
+            background-position: center center;
+            background-size: cover;
+    }
+       
+        #img_height{    position: absolute;
+                        top: 280px;
+                        left: 920px;
+                        font-weight: bold;
+                        font-size: 20px;}
+
+        #img_width { position: absolute;
+                        top: 280px;
+                    left: 1100px;
+                    font-weight: bold;
+                    font-size: 20px;}
+        #img_wheelbase { position: absolute;
+                        left: 880px;
+                        top: 600px;
+                        font-size: 20px;
+                    font-weight: bold;}
+        #img_length { position: absolute;
+                    left: 1360px;
+                top: 600px;
+            font-size: 20px;
+        font-weight: bold;}
+        #img_title { color:#606060;
+        font-weight: normal;}
+        h3:hover { color: red;}
+
+        
+        </style>
+           <script>
+            $(document).ready(function(){
+                $(".techtitle1").hide();
+                $("#title1").click(function(){
+                    $(".techtitle1").slideToggle(500);
+                });
+            });
+            $(document).ready(function(){
+                $(".techtitle2").hide();
+                $("#title2").click(function(){
+                    $(".techtitle2").slideToggle(500);
+                });
+            });
+            $(document).ready(function(){
+                $(".techtitle3").hide();
+                $("#title3").click(function(){
+                    $(".techtitle3").slideToggle(500);
+                });
+            });
+            $(document).ready(function(){
+                $(".techtitle4").hide();
+                $("#title4").click(function(){
+                    $(".techtitle4").slideToggle(500);
+                });
+            });
+            $(document).ready(function(){
+                $(".techtitle5").hide();
+                $("#title5").click(function(){
+                    $(".techtitle5").slideToggle(500);
+                });
+            });
+        
+        </script>
+       
+</head>
+<body> 
+    
+    <div id="f_header">
+    <h1>911 Carrera</h1>
+    <div id="header">
+        <div id="inline1">158,700,000 KRW부터<sup>12</sup>
+        <br><small>가격</small></div>
+        <div id="inline2">288kW/392PS
+        <br><small>Power[kW]/Power[PS]</small>
+        </div>
+        <div id="inline3">4.2s
+        <br><small>Acceleration 0-100km/h</small>
+        </div>
+        <div id="inline4">293km/h
+        <br><small>Top speed</small>
+        </div>
+    </div>
+    </div>
+
+    <div id="main">
+        <div id="front_small">
+            <sup>1</sup>본 페이지에 기재된 차량 가격은 권장소비자가격(MSRP)으로, 선택 사양, 취득세, 운송료 및 
+            기타 핸들링에 대한 비용은 포함하지 않으며 실제 판매 가격과 상이할 수 있습니다.<br>
+            <sup>2</sup>기재된 수치는 통제된 상황에서 얻을 수 있는 최고 수치로서 환경 및 운전 상황에 따라 달라질 수 있습니다.   
+        </div>
+        <div id="main_sub">
+            <h2>기술 사양</h2>
+            <hr id="bold">
+            <div id="title1"><h3>Power unit</h3></div>
+            <div class="techtitle1">
+            <div>
+                <ul id="leftline">
+                    <li>Number of cylinders</li>
+                    <li>Bore</li>
+                    <li>Stroke</li>
+                    <li>Displacement</li>
+                    <li>Power(PS)</li>
+                    <li>Power(kW)</li>
+                    <li>RPM point maximum power</li>
+                    <li>Maximum engine speed</li>
+                    <li>Max. torque</li>
+                    <li>RPM range maximum torque</li>
+                </ul>
+            </div>
+            <div>
+                <ul id="rightline">
+                    <li>6</li>
+                    <li>91.00mm</li>
+                    <li>76.4mm</li>
+                    <li>2,981cc</li>
+                    <li>392PS</li>
+                    <li>288kW</li>
+                    <li>6,500r/min</li>
+                    <li>7,500r/min</li>
+                    <li>45.9kg·m</li>
+                    <li>1,950-5,000r/min</li>
+                </ul>
+            </div></div>
+            <div id="title2"><h3>Performance</h3></div>
+            <div class="techtitle2">
+                <div><ul id="leftline">
+                    <li>Top speed</li>
+                    <li>Acceleration 0-100km/h</li>
+                    <li>Acceleration 0-100km/h<br>
+                        with Sport Chrono Package</li>
+                    <li>Acceleration 0-160km/h</li>
+                    <li>Acceleration 0-160km/h<br>
+                        Sport Chrono Package</li>
+                    <li>Acceleration 0-200km/h</li>
+                    <li>Acceleration 0-200km/h<br>
+                        Sport Chrono Package</li>
+                    <li>In-gear acceleration(80
+                        -120km/h)<br>(50-75mbh)</li>
+                </ul></div>
+            
+            <div>
+                <ul id="rightline">
+                    <li>293km/h</li>
+                    <li>4.2 s</li>
+                    <li>4.0 s<br><br></li>
+                    <li>9.3s</li>
+                    <li>9.0s<br><br></li>
+                    <li>14.5s</li>
+                    <li>14.2s<br><br></li>
+                    <li>2.6s<br><br></li>
+                </ul>
+            </div>
+            </div>
+            <div id="title3"><h3>Body</h3></div>
+            <div class="techtitle3">
+            <div>
+                <ul id="leftline">
+                    <li>Length</li>
+                    <li>Width</li>
+                    <li>Width(with mirros)</li>
+                    <li>Height</li>
+                    <li>Wheelbase</li>
+                    <li>Turning circle</li>
+                    <li>Maximum load</li>
+                    <li>Maximum permissible roof load <br>with porshe roof transport system</li>
+                </ul>
+            </div>
+            <div>
+                <ul id="rightline">
+                    <li>4,519mm</li>
+                    <li>1,852mm</li>
+                    <li>2,024mm</li>
+                    <li>1,298mm</li>
+                    <li>2,450mm</li>
+                    <li>11.2m</li>
+                    <li>455kg</li>
+                    <li>75kg<br><br></li>
+                </ul>
+            </div></div>
+            <div id="title4"><h3>Capacities</h3></div>
+            <div class="techtitle4">
+            <div>
+                <ul id="leftline">
+                    <li>Luggage compartment volume, front</li>
+                    <li>Fuel tank</li>
+                
+                </ul>
+            </div>
+            <div>
+                <ul id="rightline">
+                    <li>132L</li>
+                    <li>64L</li>
+                </ul>
+            </div></div>
+            <div id="title5"><h3>가격</h3></div>
+            <div class="techtitle5">
+            <div>
+                <ul id="leftline1">
+                    <li>포르쉐 더블 클러치(PDK)</li>
+                </ul>
+            </div>
+            <div>
+                <ul id="rightline1">
+                    <li>158,700,000KRW부터<sup>12</sup></li> 
+                </ul>
+            </div></div>
+
+            <div id="back_small">
+                <sup>1</sup>본 페이지에 기재된 차량 가격은 권장소비자가격(MSRP)으로, 선택 사양, 취득세, 운송료 및 
+                기타 핸들링에 대한 비용은 포함하지 않으며 실제 판매 가격과 상이할 수 있습니다.<br>
+                <sup>2</sup>기재된 수치는 통제된 상황에서 얻을 수 있는 최고 수치로서 환경 및 운전 상황에 따라 달라질 수 있습니다.   
+            </div>
+        </div>
+
+  
+    </div>
+    <div id="carimg"></div>
+<hr id="bold2">
+<div id="footer">
+    <p>
+    © 2023 Porsche Korea Ltd. Legal notice 개인정보처리방침 쿠키 정책 위치정보사업 이용약관 위치기반서비스 이용약관 포르쉐 그룹 부정비리 제보 시스템 Open Source Software Notice.<br>
+<br>
+포르쉐 고객센터 080-8100-911<br>
+<br>
+※ 표기된 연비는 표준 모드에 의한 것으로 도로상태, 운전방법, 차량적재, 정비상태 및 외기온도에 따라 실주행연비와 차이가 있습니다.<br>
+※ 본 웹사이트에 기재된 내용은 사전에 예고 없이 변경될 수 있으므로 실제 차량과 다를 수 있습니다.<br>
+※ 차량 이미지는 실제 모델과 다를 수 있으며, 국내 적용 사양 및 구성에 따라 차이가 있을 수 있습니다.<br>
+※ 국내 출시 이전 차량의 경우 국내 공인 연비 정보 및 타이어 에너지소비효율 정보가 존재하지 않을 수 있습니다.<br>
+※ 개별소비세 인하 관련 공지사항<br>
+포르쉐 코리아는 정부의 일시적 개별소비세 인하 정책에 따라 적용 대상 차량에 대해 개별소비세 감면 혜택을 적용합니다.<br>
+자세한 사항은 포르쉐 센터를 통하여 문의하시기 바랍니다.<br>
+※본 페이지에 기재된 차량 가격은 권장소비자가격(MSRP)으로, 선택 사양, 취득세, 운송료 및 기타 핸들링에 대한 비용은 포함하지 않으며 실제 판매 가격과 상이할 수 있습니다.<br>
+</p></div>
+
+
+<div id="img_height">
+    <div id="img_title">Height</div>
+    <div id="img_number">1,298mm</div></div>
+
+    <div id="img_width">
+        <div id="img_title">Width</div>
+        <div id="img_number">1,852mm</div></div>
+    
+    <div id="img_length">
+        <div id="img_title">Wheelbase</div>
+        <div id="img_number">2,450mm</div></div>
+
+   <div id="img_wheelbase">
+        <div id="img_title">Length</div>
+        <div id="img_number">4,519mm</div></div>
+
+
+
+
+</body>
+
+
+
+
+
+</html>

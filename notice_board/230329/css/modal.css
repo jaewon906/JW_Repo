@@ -1,0 +1,279 @@
+input::placeholder{
+    color:rgba(128, 128, 128, 0.479)
+}
+#modal_aroundBlur{
+    width:100vw;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;  
+    background-color: rgba(112, 113, 114, 0.473);  
+    display:none;
+    
+}
+#modal{
+    /* --변수명 : CSS내 사용자 지정 변수 */
+    /* --borderWidth: 30px; */
+    /* CSS내 사용자 지정 변수를 var()로 삽입할 수 있다. */
+    /* border-radius: var(--borderWidth); */
+    border-radius: 30px;
+    width:300px;
+    height:450px;
+    position:absolute;
+    margin: 160px 35.8%;
+    background: white;
+    opacity:0;
+    box-shadow: 1px 1px 10px 1px;
+
+}
+/* modal 테두리 gradient animation 설정 */
+/* #modal::after{
+  content: '';
+  position: absolute;
+  top: calc(-0.13 * var(--borderWidth));
+  left: calc(-0.13 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 0.23);
+  width: calc(100% + var(--borderWidth) * 0.23);
+  background: linear-gradient(180deg, rgba(225,0,255,1) 0%, rgba(0,212,255,1) 100%);
+  border-radius: calc(1 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 2s  infinite;
+  background-size: 300% 300%;
+  box-shadow: 1px 1px 10px 1px;
+}
+@keyframes animatedgradient {
+	0% {
+		background-position:50% 0%;
+	}
+    25%{
+        background-position: 100% 50%
+    }
+	50% {
+		background-position: 50% 100%;
+	}
+    75%{
+        background-position: 100% 50%
+    }
+	100% {
+		background-position: 50% 0%;
+	}
+} */
+
+#modal > #modal_head{
+    width:100%;
+    height:12%;
+    background-color: rgb(96, 151, 245);
+    border-top-left-radius: 29px;
+    border-top-right-radius: 29px;
+    display: flex;
+    justify-content: space-around;
+}
+/* 모달 창 띄울 시 화면 스크롤을 막기 위한 클래스 */
+.hidden{
+    position:fixed; overflow: hidden;
+}
+#modal_head > i:nth-child(1){
+    margin-top:15px;
+    font-size:20px;
+    color : white;
+    cursor: pointer;
+}
+#modal_head > i:nth-child(2){
+    margin:17px 0px 0px 100px;
+    font-size:20px;
+    color : white;
+    cursor: pointer;
+}
+#modal > #modal_main{
+    width:100%;
+    height:68%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+#modal_main #or_box{
+    width:75px;
+    background-color: white;
+    position:absolute;
+    margin-top:290px;
+    text-align: center;
+    color: gray;
+}
+#modal_main > #modal_inputIDAndPwBox{
+    border:1px solid;
+    width:80%;
+    height:80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+#modal_main > #IDPW_box{
+    margin-top:20px;
+    display:flex;
+    flex-direction: column;
+
+}
+#IDPW_box > input{
+    margin-top:20px;
+    width:200px;
+    height:20px;
+    border:1px solid rgba(128, 128, 128, 0.438);
+    border-radius:3px;
+}
+#IDPW_box > input:hover{
+    animation : inputBorderColorChange 0.3s;
+    animation-fill-mode:both;
+
+}
+@keyframes inputBorderColorChange{
+    from{}
+    to{
+        border-color:rgb(96, 151, 243)
+    }
+}
+#IDPW_box > input:focus{
+
+  /* input 영역을 focus했을 때 검은 경계선이 활성화되는데 
+  border 이외에도 outline이라는 개념이 있다. */
+  outline: none;
+  animation : inputAreaColorChange 0.3s;
+  animation-fill-mode: both;
+
+}
+@keyframes inputAreaColorChange{
+    from{}
+    to{ 
+        box-shadow: 0px 0px  0px 2px rgba(91, 150, 245, 0.541);
+        border-color:rgb(96, 151, 243);
+    }
+}
+#modal_main > #loginFailText{
+    width:auto;
+    height:auto;
+    margin-top:10px;
+    color:red;
+    font-size: 12px;
+}
+#modal_main > button{
+    width:95%;
+    height:30px;
+    background-color: rgb(96, 151, 243);
+    border:1px solid gray;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    color:white;
+    
+}
+#modal_main > button:hover{
+    scale:1.02;
+}
+#modal_main > #doSignUp{
+    width:100%;
+    height:10%;
+    display:flex;
+    justify-content: space-around;
+    margin-top:10px;
+}
+#doSignUp > p{
+    font-size: 12px;
+    line-height: 30px;
+}
+#doSignUp > a{
+    display: flex;
+    align-items: center;
+}
+#doSignUp > a > button{
+    width:70px;
+    height:20px;
+    background-color: rgb(96, 151, 243);
+    border:1px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    color:white;
+    
+}
+#doSignUp > a > button:hover{
+    scale: 1.05;
+}
+#modal_main > #saveIDANdForgotIDPWDiv{
+    width:87%;
+    height:10%;
+    display:flex;
+    justify-content: space-around;
+    margin-top:10px;
+}
+#saveIDANdForgotIDPWDiv > #saveID{
+    display: flex;
+    font-size: 12px;
+    width:35%;
+    justify-content: center;
+    align-items: center;
+}
+#saveID > p{
+    padding-left: 4px;
+}
+#saveIDANdForgotIDPWDiv > #forgotIDPW{
+    display: flex;
+    font-size: 12px;
+    width:65%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#forgotIDPW > a {
+    color:black;
+}
+#forgotIDPW > a:hover{
+    animation: fontColorChange 0.5s;
+    animation-fill-mode: both;
+}
+@keyframes fontColorChange{
+    from{}
+    to{color:red}
+}
+#modal > #modal_foot{
+    width:100%;
+    height:20%;
+    border-top: 1px solid rgb(207, 207, 207);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modal_foot > div{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+
+/* sns 로고 이미지 크기는 a 태그 안에 있다. a 태그가 display:block으로 설정하지 않으면
+   이미지가 a 태그안에 100%로 채워지지 않는다.*/
+#modal_foot a{
+    display:flex;
+    width:30px;
+    height:30px;
+    justify-content: center;
+
+}
+
+#modal_foot img{
+    width:100%;
+    height:auto;
+    border-radius: 25px;
+}
+#modal_foot img:hover{
+    scale:1.1;
+    box-shadow:1px 1px 10px 0px rgb(209, 208, 208);
+}

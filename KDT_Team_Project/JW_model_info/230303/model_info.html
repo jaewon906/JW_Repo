@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" 
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" 
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="container1.css">
+    <link rel="stylesheet" href="container2.css">
+    <link rel="stylesheet" href="container3.css">
+    <link rel="stylesheet" href="container4.css">
+    <script src="model_info.js"></script>
+    <script src="https://kit.fontawesome.com/ab37fbcfbd.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <style>
+        
+        /* container1_blur의 z-index=5 */
+        *{margin:0;padding:0;max-width:100vw;color:white}
+        a{
+            color:black;
+            text-decoration: none;
+        }
+        
+        a:hover{
+            animation:fontColor 0.8s;
+            animation-fill-mode: both;
+        }
+        @keyframes fontColor{
+            from{}
+            to{color:red}
+        }
+        video{
+            width:100%;
+            height:100%;
+            object-fit: cover;
+        }
+        /* 각 요소들의 웹페이지 크기에 따른 반응형을 만들기 위해 container(width & height = 100vw, 100vh)
+        에 각 div요소를 %로 설정했다. 브라우저 크기가 줄면 텍스트나 div요소 간 방해로 인해 배치가 흐트려지는데
+        이를 min-width로 배치가 틀어질 때의 가로 픽셀값보다 조금 크게 설정해서 방지했다.*/
+    </style>
+</head>
+<body>
+    <div id="logo"><a href="mainURL"><img src="../../files/porsche-mark.webp"/></a></div>
+    <!-- 1페이지 -->
+    <div id="container1">
+    <div id="container1_blur"></div>
+    <header>
+        <div id="list">
+            <a href="#" id="list1">리스트1</a>
+            <a href="#" id="list2">리스트2</a>
+            <a href="#" id="list3">리스트3</a>
+            <a href="#" id="list4">리스트4</a>
+            <a href="#" id="list5">리스트5</a>
+        </div>
+        <div id="menu"><a href="#" onmouseover="menuBarOn(600)" onclick="menuBarOff(600)">메뉴 ≡</a></div>
+    </header>
+    <main>
+        <section>
+        <div id="model_name">
+            <a href="#">All</a> 
+            <a href="#">coupe</a> 
+            <a href="#">Cabriolet</a>
+            <a href="#">Targa</a>
+        </div>
+        <div id="car_name">
+            <p id="p2">911 Carrera</p>
+        </div>
+        <div id="list_btn">
+            <div id="go_spec"><a href ="info_tech.html">기술 사양</a></div>
+            <div id="make_porsche"><a href ="#">나만의 포르쉐 만들기</a></div>
+            <div id="compare"><a href ="#">비교하기</a></div>
+        </div>
+        <div id="text_speed">
+            <div id="power">
+                <p class="p1">288 kW/392 PS</p>
+                <p>Power (kW)/Power (PS)</p>
+            </div>
+            <div id="accleration">
+                <p class="p1">4.2 s</p>
+                <p>Acceleration 0 - 100km/h</p>
+            </div>
+            <div id="topSpeed">
+                <p class="p1">293 km/h</p>
+                <p>Top speed</p>
+            </div>
+        </div>
+    </section>
+    <!-- 메뉴 호버시 나오는 창 -->
+    <div id="menu_window">
+        <div style="width:100%; height:55%; border:1px red solid;
+        display:flex; flex-direction: column; justify-content: space-around;">
+        <div style="width:100%;height:5%; text-align: right; margin: 20px 0px 0px -20px;"><a href="#" onclick="menuBarOff('#menu',600)">
+            <i class="fa-solid fa-x" style="color:black"></i></a></div>
+            <div id="menu_col">
+                <div id="menu_img"><img src="../../files/porsche2.jpg"/>5</div>
+                <div id="menu_img"><img src="../../files/porsche2.jpg"/>5</div>
+            </div>
+            <div id="menu_col">
+                <div id="menu_img"><img src="../../files/porsche2.jpg"/>5</div>
+                <div id="menu_img"><img src="../../files/porsche2.jpg"/>5</div>
+            </div>
+            <div id="menu_col">
+                <div id="menu_img"><img src="../../files/porsche2.jpg"/>5</div>
+                <div id="menu_img"><img src="../../files/porsche2.jpg"/>5</div>
+            </div>6
+        </div>
+        <div style="width:100%; height:45%; border:1px red solid"></div>
+    </div>
+    </main>
+    
+<!-- 2페이지 -->
+    <div id="container2">
+        <main>
+            <div id="image"></div>
+            <div id="text"><br/>
+                <p id="title">911 에디션 50주년 포르쉐 디자인.</p><br/>
+                <p> 911의 전설적인 디자인과 크로노그래프 I의 순수주의 캐릭터가 만나 새로운 아이콘이 탄생했습니다. 
+                전 세계 750대 한정 생산되는 911 에디션 50주년 포르쉐 디자인 모델은 상징적인 시계의 매혹적인 요소와 시대를 초월한 스포츠카 디자인의 이상적인 조화를 선보입니다. 
+                이 특별한 조우는 911과 포르쉐 디자인(Porsche Design)의 성공 스토리를 상징적으로 보여줍니다.</p>
+            </div>
+        </main>
+        <section>
+
+        </section>
+        <footer>
+            <div id="text">
+                <p id="title">시대를 초월한 디자인의 현대적인 해석.</p><br/>
+                <p>911 카레라 디자인의 특징은 상징적인 플라이라인과 우아한 루프 라인입니다.
+ 이는 1963년 이후 줄곧 포르쉐의 특징이었으며, 나아가 고성능 스포츠카의 특징으로 자리잡았습니다.</p>
+            </div>
+            <div id="video">
+                <video src="../../files/porsche_video1.mp4" autoplay muted loop></video>
+            </div>
+        </footer>
+    </div>
+    <!-- 3페이지 -->
+    <div id="container3">
+        <main>
+            <div class="list">
+                <p class="title">디자인</p>
+                <p class="content">디자인에 대해 자세히 알아보십시오</p>
+            </div>
+            <div class="list">
+                <p class="title">퍼포먼스</p>
+                <p class="content">인상적인 퍼포먼스를 확인해보십시오</p>
+            </div>
+            <div class="list">
+                <p class="title">편안함</p>
+                <p class="content">비교할 수 없는 편안함을 경험해보십시오</p>
+            </div>
+            <div class="list">
+                <p class="title">GTS</p>
+                <p class="content">왜 'GTS'가 훨씬 더 포르쉐 다운 특성을 의미하는지 그 이유를 확인해 보십시오</p>
+            </div>
+            <div class="list">
+                <p class="title">911 에디션 50주년 포르쉐 디자인</p>
+                <p class="content">911 에디션 50주년 포르쉐 디자인 모델에 대해 자세히 알아보십시오</p>
+            </div>
+            
+        </main>
+    </div>
+    <!-- 4페이지 -->
+    <div id="container4">
+        <video src="../../files/porsche_video3.mp4" autoplay muted loop>감각적</video>
+    </div>
+    
+</body>
+</html>

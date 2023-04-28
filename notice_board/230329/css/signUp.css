@@ -1,0 +1,65 @@
+#container{
+   width:100vw;
+   height:auto;
+
+}
+main {
+    width:100%;
+    height:90%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+main > iframe{
+    width:80%;
+    height:20%;
+    margin:30px 0px;
+    border:1px solid gray;
+}
+main > div{
+    width:80%;
+    display: flex;
+    margin-top:50px;
+}
+
+main > div:nth-child(1){
+    margin-top:100px;
+
+}    
+
+main > #pleaseAgree{
+    margin: 30px 0px 30px 0px ;
+    color:white;
+}
+footer {
+    height:200px;
+}
+footer > #TermsOfUseButtonBox{
+    margin-top:100px;
+    height:200px;
+    display: flex;
+    justify-content: center;
+
+}
+#TermsOfUseButtonBox > div{
+    width:400px;
+    display:flex;
+    justify-content: space-around;
+}
+
+#TermsOfUseButtonBox  button{
+    width:150px;
+    height: 35px;
+    border-radius: 3px;
+    border:1px solid gray;
+    cursor: pointer;
+}
+#TermsOfUseButtonBox div > a:nth-child(1)> button{
+    background-color:rgb(96, 151, 243);
+    color:white;
+    
+    
+}
+#TermsOfUseButtonBox  button:hover{
+    scale:1.05;
+}

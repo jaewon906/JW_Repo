@@ -1,0 +1,67 @@
+
+main {
+    width:100vw;
+    height:auto;
+    
+
+
+}
+main #container1{
+    width:100vw;
+    height:100vh;
+    border:1px solid antiquewhite;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index:5;
+}
+main #container2{
+    width:100vw;
+    height:100vh;
+    border: 1px solid rgba(0, 255, 255, 0.459);
+}
+main #container3{
+    width:100vw;
+    height:100vh;
+    border:1px solid rgba(127, 255, 212, 0.445);
+}
+main #container4{
+    width:100vw;
+    height:100vh;
+    border:1px solid rgba(140, 127, 255, 0.445);
+}
+main  #board1, main  #board2{
+    width:200px;
+    height:200px;
+    border:2px black solid;
+    background-color: white;
+    border-radius: 100px;
+  
+
+} 
+#board1:hover{
+    animation:board_hover 0.5s;
+    animation-fill-mode: both;
+    cursor: pointer;
+    box-shadow: 1px 1px 20px 1px;
+}
+
+#board2:hover{
+    animation:board_hover 0.5s;
+    animation-fill-mode: both;
+    cursor: pointer;
+    box-shadow: 1px 1px 20px 1px;
+}
+@keyframes board_hover{
+    from{}
+    to{scale:1.1}
+}
+
+.board i{
+    cursor:pointer;
+    display:none;
+}
+
+footer{
+
+}

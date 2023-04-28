@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ 
+        
+.gradient-border {
+  --borderWidth: 3px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(180deg, rgba(225,0,255,1) 0%, rgba(0,212,255,1) 100%);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 2s  infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position:50% 0%;
+	}
+    25%{
+        background-position: 100% 100%
+    }
+	50% {
+		background-position: 50% 100%;
+	}
+    75%{
+        background-position: 0% 0%
+    }
+	100% {
+		background-position: 50% 0%;
+	}
+}
+        
+    </style>
+</head>
+<body>
+    <div class="gradient-border" id="box">Animated <br>CSS<br>Gradient Border</div>
+</body>
+</html>

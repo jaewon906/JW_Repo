@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="container1.css">
+    <link rel="stylesheet" href="id_box.css">
+    <script src="https://kit.fontawesome.com/ab37fbcfbd.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" 
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" 
+    crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+
+    <title>Document</title>
+    <style>
+        *{margin:0px 0px 0px 1px; padding:0; max-width:100vw}
+        
+    </style>
+</head>
+<body>
+    <div id="container1">
+        <!-- 헤더 -->
+        <header>
+            <div id="conf_lists">
+                <p>Models</p>
+                <p><a href="#">1. Exterior Colors & Wheels</a></p>
+                <p><a href="#">2. Interior Colors & Seats</a></p>
+                <p><a href="#">3. Indivisual Options</a></p>
+                <p><a href="#">4. Summary</a></p>
+            
+            </div>
+            <div id="icons_contactDealer">
+                <a href="#"><i class="fa-solid fa-upload"></i></a>
+                <a href="#"><i class="fa-solid fa-download"></i></a>
+                <a href="#"><i class="fa-solid fa-print"></i></a>
+                <a href="#"><i class="fa-solid fa-share"></i></a>
+                <a href="#"><div id="contactDealer"><i class="fa-solid fa-location-dot" style="width:30px;height:30px;"></i>Contact a Dealer</div></a>
+            </div>
+        </header>
+        <!-- 메인 -->
+        <main>
+            <!-- 메인 왼쪽구역 -->
+            <section>
+                <div id="car_name">
+                    <p style="font-size: 30px; font-weight: 600;">911 Carrera Coupé</p>
+                </div>
+                <div id="car_image">
+                    <img src="../../files/porsche7.jpg"/>
+                </div>
+            </section>
+            <!-- 메인 오른쪽 구역 -->
+            <aside>
+                <!-- 가격 띄우는 구역 -->
+                <div id="price">
+                    <div id="total_price">
+                        <p>Total price</p>
+                        <txt id="total_val">금액</txt> ₩
+                    </div>
+                    <div id="base_price">
+                        <p>Base price</p>
+                        <txt id="base_val">금액</txt> ₩
+                        <p>Price for equipment</p>
+                        <txt id="equip_val">금액</txt> ₩
+                        
+                    </div>
+                </div>
+                <!-- 가격 밑 리스트 -->
+                <div id="list">
+                    <!-- 첫번째 옵션  -->
+                    <p>Exterior Colors & Wheels</p>
+                    <div id="ext_colorWheels">
+                        <div class="disappear_box">
+                            <div class="list_box" id="exterior_colour" value="0" onclick="list_box_active(this.id)">Exterior Colours <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                            <div id="exterior_colour_box">
+                                <div style="width:90%; height:auto; text-align:left;" id="standard Colour"><p>Standard Colour</p>
+                                   <div style="background-color: rgb(239, 239, 239);" title="white - 100,000 ₩" class="group1" type="button" id="i1" onclick="equipTotal_price(document.getElementById('i1').className,this.id),optionSelectStyle(document.getElementById('i1').className,this.id) " value="1000000"></div>
+                                   <div style="background-color: rgb(0, 0, 0);" title="black - 200,000 ₩" class="group1" type="button" id="i2" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i1').className,id)" value="2000000"></div> 
+                                   <div style="background-color: rgb(255, 0, 0);" title="red - 300,000 ₩" class="group1" type="button" id="i3" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i1').className,id)" value="3000000"></div> 
+                                   <div style="background-color: rgb(238, 214, 0);" title="yellow - 400,000 ₩" class="group1" type="button" id="i4" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i1').className,id)" value="4000000"></div> 
+                                </div>
+                                <div style="width:90%; height:auto; text-align:left;" id="standard Colour"><p>Metallic Colour</p>
+                                    <div style="background-color: black;" title="red - 100,000 ₩" class="group1" type="button" id="i5" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i5').className,id)" value="5000000"></div>
+                                    <div style="background-color: rgb(239,245,249);" title="blue - 200,000 ₩" class="group1" type="button" id="i6" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i5').className,id)" value="6000000"></div> 
+                                    <div style="background-color: rgb(0,25,75);" title="greenyellow - 200,000 ₩" class="group1" type="button" id="i7" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i5').className,id)" value="7000000"></div> 
+                                    <div style="background-color: rgb(204,204,204);" title="red - 100,000 ₩" class="group1" type="button" id="i8" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i5').className,id)" value="8000000"></div>
+                                    <div style="background-color: rgb(51,51,51);" title="blue - 200,000 ₩" class="group1" type="button" id="i9" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i5').className,id)" value="9000000"></div> 
+                                    <div style="background-color: rgb(60,60,50);" title="greenyellow - 200,000 ₩" class="group1" type="button" id="i10" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i5').className,id)" value="10000000"></div> 
+                                </div>
+                                <div style="width:90%; height:auto; text-align:left;" id="standard Colour"><p>Special Colour</p>
+                                    <div style="background-color: crimson;" title="red - 100,000 ₩" class="group1" type="button" id="i11" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i11').className,id)" value="11000000"></div>
+                                    <div style="background-color: blue;" title="blue - 200,000 ₩" class="group1" type="button" id="i12" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i11').className,id)" value="12000000"></div> 
+                                    <div style="background-color: greenyellow;" title="greenyellow - 200,000 ₩" class="group1" type="button" id="i13" onclick="equipTotal_price(document.getElementById('i1').className,this.id), optionSelectStyle(document.getElementById('i11').className,id)" value="13000000"></div> 
+                                </div>              
+                            </div>
+                        </div>
+                    
+                    
+                        <div class="disappear_box">
+                            <div class="list_box" id="wheels" value="0" onclick="list_box_active(this.id)">Wheels <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                            <div id="wheels_box">
+                                <div class="group2" type="button" id="i4" onclick="equipTotal_price(document.getElementById('i4').className,this.id)" value="4000000"></div>
+                                <div class="group2" type="button" id="i5" onclick="equipTotal_price(document.getElementById('i4').className,this.id)" value="5000000"></div>
+                                <div class="group2" type="button" id="i6" onclick="equipTotal_price(document.getElementById('i4').className,this.id)" value="6000000"></div>
+                            </div>
+                        </div>
+                        <div class="disappear_box">
+                            <div class="list_box" id="painted_wheels" value="0" onclick="list_box_active(this.id)">Painted Wheels <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                            <div id="painted_wheels_box">
+                                <input class="group3" type="button" id="i7" onclick="equipTotal_price(document.getElementById('i7').className,this.id)" value="7000000">
+                                <input class="group3" type="button" id="i8" onclick="equipTotal_price(document.getElementById('i7').className,this.id)" value="8000000">
+                                <input class="group3" type="button" id="i9" onclick="equipTotal_price(document.getElementById('i7').className,this.id)" value="9000000">
+                            </div>
+                        </div>
+                        <div class="disappear_box">
+                            <div class="list_box" id="wheel_accessories" value="0" onclick="list_box_active(this.id)">Wheel Accessories <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                            <div id="wheel_accessories_box">
+                                
+                                <input class="group4" type="button" id="i10" onclick="equipTotal_price(document.getElementById('i10').className,this.id)" value="7000000">
+                                <input class="group4" type="button" id="i11" onclick="equipTotal_price(document.getElementById('i10').className,this.id)" value="8000000">
+                                <input class="group4" type="button" id="i12" onclick="equipTotal_price(document.getElementById('i10').className,this.id)" value="9000000">
+                            </div>
+                        </div>
+                    </div>
+                  <!-- 두번째 옵션  -->
+                    <p>Interior Colors & Seats</p>
+                    <div id="int_colorSeat">
+                        <div class="disappear_box">
+                           <div class="list_box" id="interior" value="0" onclick="list_box_active(this.id)">Interior Colors and Material <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                           <div id="interior_box">
+                            
+                            <input class="group5" type="button" id="i13" onclick="equipTotal_price(document.getElementById('i13').className,this.id)" value="7000000">
+                            <input class="group5" type="button" id="i14" onclick="equipTotal_price(document.getElementById('i13').className,this.id)" value="8000000">
+                            <input class="group5" type="button" id="i15" onclick="equipTotal_price(document.getElementById('i13').className,this.id)" value="9000000">
+                           </div>
+                        </div>
+                        <div class="disappear_box">
+                           <div class="list_box" id="seats" value="0" onclick="list_box_active(this.id)">Seats <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                           <div id="seats_box">
+                            
+                            <input class="group6" type="button" id="i16" onclick="equipTotal_price(document.getElementById('i16').className,this.id)" value="7000000">
+                            <input class="group6" type="button" id="i17" onclick="equipTotal_price(document.getElementById('i16').className,this.id)" value="8000000">
+                            <input class="group6" type="button" id="i18" onclick="equipTotal_price(document.getElementById('i16').className,this.id)" value="9000000">
+                           </div>
+                        </div>
+                        <div class="disappear_box">
+                           <div class="list_box" id="stiching" value="0" onclick="list_box_active(this.id)">Stiching and seat centres <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                           <div id="stiching_box">
+                            
+                            <input class="group7" type="button" id="i19" onclick="equipTotal_price(document.getElementById('i19').className,this.id)" value="7000000">
+                            <input class="group7" type="button" id="i20" onclick="equipTotal_price(document.getElementById('i19').className,this.id)" value="8000000">
+                            <input class="group7" type="button" id="i21" onclick="equipTotal_price(document.getElementById('i19').className,this.id)" value="9000000">
+                           </div>
+                        </div>
+                    </div>
+                <!-- 세번째 옵션  -->
+                    <p>Individual Option</p>
+                    <div id="individual_option">
+                        <div class="disappear_box">
+                           <div class="list_box" id="epuipment_packages" value="0" onclick="list_box_active(this.id)">Equipment Packages <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                           <div id="epuipment_packages_box">
+                            
+                            <input class="group8" type="button" id="i22" onclick="equipTotal_price(document.getElementById('i22').className,this.id)" value="7000000">
+                            <input class="group8" type="button" id="i23" onclick="equipTotal_price(document.getElementById('i22').className,this.id)" value="8000000">
+                            <input class="group8" type="button" id="i24" onclick="equipTotal_price(document.getElementById('i22').className,this.id)" value="9000000">
+                           </div>
+                        </div>
+                        <div class="disappear_box">
+                           <div class="list_box" id="exterior" value="0" onclick="list_box_active(this.id)">Exterior <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                           <div id="exterior_box">
+                            
+                            <input class="group9" type="button" id="i25" onclick="equipTotal_price(document.getElementById('i25').className,this.id)" value="7000000">
+                            <input class="group9" type="button" id="i26" onclick="equipTotal_price(document.getElementById('i25').className,this.id)" value="8000000">
+                            <input class="group9" type="button" id="i27" onclick="equipTotal_price(document.getElementById('i25').className,this.id)" value="9000000">
+                           </div>
+                        </div>
+                        <div class="disappear_box">
+                           <div class="list_box" id="chassis" value="0" onclick="list_box_active(this.id)">Drive train / Chassis <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                           <div id="chassis_box">
+                            
+                            <input class="group10" type="button" id="i28" onclick="equipTotal_price(document.getElementById('i28').className,this.id)" value="7000000">
+                            <input class="group10" type="button" id="i29" onclick="equipTotal_price(document.getElementById('i28').className,this.id)" value="8000000">
+                            <input class="group10" type="button" id="i30" onclick="equipTotal_price(document.getElementById('i28').className,this.id)" value="9000000">
+                           </div>
+                        </div>
+                    </div>
+                <!-- 네번째 옵션  --> 
+                    <p>Extended Individualization</p>
+                    <div id="extended_option">
+                        <div class="disappear_box">
+                            <div class="list_box" id="leather_deco" value="0" onclick="list_box_active(this.id)">Colour choice leather / decorative stitch <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                            <div id="leather_deco_box">
+                                <input class="group11" type="button" id="i31" onclick="equipTotal_price(document.getElementById('i31').className,this.id)" value="7000000">
+                                <input class="group11" type="button" id="i32" onclick="equipTotal_price(document.getElementById('i31').className,this.id)" value="8000000">
+                                <input class="group11" type="button" id="i33" onclick="equipTotal_price(document.getElementById('i31').className,this.id)" value="9000000"></div>
+                        </div>
+                        <div class="disappear_box">
+                            <div class="list_box" id="paint_exterior" value="0" onclick="list_box_active(this.id)">Paint / Exterior Color <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+                            <div id="paint_exterior_box">
+                                <input class="group12" type="button" id="i34" onclick="equipTotal_price(document.getElementById('i34').className,this.id)" value="7000000">
+                                <input class="group12" type="button" id="i35" onclick="equipTotal_price(document.getElementById('i34').className,this.id)" value="8000000">
+                                <input class="group12" type="button" id="i36" onclick="equipTotal_price(document.getElementById('i34').className,this.id)" value="9000000"></div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+    <!-- 스크립트가 밑에 있어야 body부분의 내용을 읽고 실행할 수 있다. -->
+    <script src="Porsche_Car_Configuration.js"></script>
+</body>
+</html>

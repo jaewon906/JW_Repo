@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="../css/registMyInfo.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <!-- favicon -->
+    <link rel="icon" href="../img/icecream_favicon.png">
+    <!-- script -->
+    <script src="https://kit.fontawesome.com/ab37fbcfbd.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <title>컴패니 - 회원가입</title>
+</head>
+<body>
+     <!-- 모달 창 시작 -->
+     <!-- 모달 창 시작 -->
+     <div id="modal_aroundBlur">
+        <div id="modal">
+            <div id="modal_head"><i style="margin-left: -10px;">company</i><i class="fa-solid fa-x"></i></div>
+            <div id="modal_main">
+                <div id=IDPW_box>
+                    <input id="inputID" placeholder="아이디" focus />
+                    <input id="inputPW" placeholder="비밀번호" />
+                </div>
+                <div id="loginFailText"></div>
+                <button id="logIn">로그인</button><br />
+                <div id="doSignUp">
+                    <p>아직 회원이 아니세요?</p> <a href="signup.html"><button type="button">회원가입</button></a>
+                </div>
+                <div id="saveIDANdForgotIDPWDiv">
+                    <div id="saveID">
+                        <input id="saveIDCheckBox" type="checkbox">
+                        <p>아이디저장</p>
+                    </div>
+                    <div id="forgotIDPW">
+                        <a href="">아이디 찾기</a>
+                        <a href>비밀번호 찾기</a>
+                    </div>
+                </div>
+                <div id="or_box">
+                    <p style="font-size: 10px; margin-top: 10px;">또는</p>
+                </div>
+            </div>
+            <div id="modal_foot">
+                <div>
+                    <a href=""><img src="../img/kakao_logo.png" /></a>
+                    <a href=""><img src="../img/naver_logo.png" /></a>
+                    <a href=""><img src="../img/instagram_logo.png" /></a>
+                    <a href=""><img src="../img/facebook_logo.png" /></a>
+                    <a href=""><img src="../img/twitter_logo.png" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 모달 창 끝 -->
+    <!-- 헤더 시작 -->
+    <header>
+        <div id="header_list">
+            <div id="companyLogo">
+                <a href="index.html"><i>Company</i></a>
+            </div>
+        </div>
+        <div id="signIn_Up">
+            <div id="welcome">
+
+            </div>
+            <div class="signIn">
+                <a href="#">로그인</a>
+            </div>
+            <div id="signOut">
+                <a href="#">로그아웃</a>
+            </div>
+            <div id="signUp">
+                <a href="signUp.html">회원가입</a>
+            </div>
+            <div id="withdrawal">
+                <a href="">회원탈퇴</a>
+            </div>
+        </div>
+    </header>
+    <!-- 헤더 끝 -->
+    <!-- 상단 스크롤 바 -->
+    <div id="progressBar"></div>
+    <main id="registMyInfoMain">
+        <p>회원가입</p>
+        <div id="registMyInfo">
+            <div id="registIDBox">
+                <p>아이디</p>
+                <input id="registID" placeholder="아이디">             
+            </div>
+            <div id="registNickBox">
+                <p>닉네임</p>
+                <input id="registNick" placeholder="닉네임">             
+            </div>
+            <div id="registEmailBox">
+                <p>이메일</p>
+                <input id="registEmail" placeholder="이메일">
+            </div>
+            <div id="registPWBox">
+                <p>비밀번호</p>
+                <input id="registPW" placeholder="비밀번호">
+            </div>
+            <div id="checkPWBox">
+                <p>비밀번호 확인</p>
+                <input id="checkPW" placeholder="비밀번호 확인">
+            </div>
+            <button id="createMyAccountButton">계정 만들기</button>   
+            <div><p>이미 계정이 있으신가요? </p><a class="signIn">로그인 &gt;</a></div>        
+        </div>
+    </main>
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

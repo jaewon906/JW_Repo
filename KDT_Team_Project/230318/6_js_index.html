@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+  <title>슬라이드</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_slide.css">
+</head>
+
+<body onload="draw()">
+<header>
+    <div id="logo">PHOTO_GALLERY</div>
+    <div id="top_menu">로그인 | 회원가입 | 방명록</div>
+</header>
+<main>
+    <div id="left">
+        <div id="photoGallery">포토 갤러리</div>
+        <div id="listBox">
+          <li>+ 풍경</li>
+          <li>+ 일상</li>
+          <li>+ 인물</li>
+          <li>+ 가족</li>
+        </div>
+    </div>
+    <div id="right">
+        <div id="main_title">풍경 사진</div>
+        <div id="main_img"></div>
+        <div id="thumbnail">
+          <div id="slideShow">
+            <ul class="slides">
+              <!-- 인라인 속성을 가진 li 태그를 활용 -->
+              <li><img id="img0" src="img/images0.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img1" src="img/images1.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img2" src="img/images2.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img3" src="img/images3.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img4" src="img/images4.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img5" src="img/images5.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img6" src="img/images6.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img7" src="img/images7.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img8" src="img/images8.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img9" src="img/images9.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img10" src="img/images10.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img11" src="img/images11.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img12" src="img/images12.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img13" src="img/images13.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img14" src="img/images14.jpg" alt="" width="300px" height="300px"></li>
+              <li><img id="img15" src="img/images15.jpg" alt="" width="300px" height="300px"></li>
+              
+            </ul>
+
+          </div>
+        </div>
+        <footer>
+          <div id="move_left">
+            <canvas class="prev" id="left_arrow" width="100" height="100"></canvas>
+          </div>
+          <div id="photos">
+            <div><img src="img/images0.jpg"></div>
+            <div><img src="img/images1.jpg"></div>
+            <div><img src="img/images2.jpg"></div>
+            <div><img src="img/images3.jpg"></div>
+            <div><img src="img/images4.jpg"></div>
+          </div>
+          <div id="move_right">
+            <canvas class="next" id = right_arrow width="100" height="100"></canvas>
+          </div>
+        </footer>
+    </div>
+</main>
+
+  <script>
+    const slides = document.querySelector('.slides'); // 전체 슬라이드 컨테이너
+    const slideImg = document.querySelectorAll('.slides li'); // 모든 슬라이드들
+    let currentIdx = 0; // 현재 슬라이드 index
+    const slideCount = slideImg.length;   // 슬라이드 개수
+    const prev = document.querySelector('.prev');   // 이전 버튼
+    const next = document.querySelector('.next');   // 다음 버튼
+    const slideWidth = 300;   // 한 개의 슬라이드 넓이
+    const slideMargin = 100;    // 슬라이드 간의 margin 값
+    const photos = document.getElementById("photos");
+    let count=0;
+  
+function draw(){
+
+    const canvas2 = document.getElementById("right_arrow").getContext("2d");
+    const canvas1 = document.getElementById("left_arrow").getContext("2d");
+    canvas1.fillStyle="rgb(255,255,255)"
+    canvas2.fillStyle="rgb(255,255,255)"
+    canvas1.beginPath();
+    canvas1.moveTo(0,50);
+    canvas1.lineTo(100,100);
+    canvas1.lineTo(100,0);
+    canvas1.fill();
+    canvas2.beginPath();
+    canvas2.moveTo(100,50);
+    canvas2.lineTo(0,100);
+    canvas2.lineTo(0,0);
+    canvas2.fill();
+
+}
+    // 전체 슬라이드 컨테이너 넓이 설정
+    slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';  // width : 6000px;(사진이 15장이고 개당 400px이므로)
+    // 각 슬라이드의 너비(slideWidth)와 여백(slideMargin)을 더한 값에
+    // 슬라이드의 총 개수(slideCount)를 곱하고,
+    // 결과에 'px'를 붙여 최종 너비를 픽셀 단위로 설정한다
+    function moveSlide(num) {
+      // 슬라이드를 이동하는 기능을 수행하며, 매개변수 num을 사용해 몇 번째 슬라이드로 이동할지 지정
+      slides.style.left = -num * 400 + 'px';
+      // 슬라이드를 이동하는데 사용되는 css 속성인 left 값을 변경, 음수로 만들어 왼쪽으로 이동시킴
+      currentIdx = num;
+      // 현재 슬라이드 인덱스(currentIdx)를 매개변수 num 값으로 변경한다(업데이트)
+    }
+
+    prev.addEventListener('click', function () {
+      //  첫 번째 슬라이드로 표시 됐을 때는
+      // 이전 버튼 눌러도 아무런 반응없게 하기 위해
+      // currentIdx !== 0 일때만 moveSlide 함수 불러옴
+      if (currentIdx !== 0) {
+        moveSlide(currentIdx - 1);
+        console.log(currentIdx);
+      
+        if(currentIdx <=11){
+          photos.innerHTML=`<div><img src="img/images${currentIdx}.jpg" alt="" ></div><div><img src="img/images${currentIdx+1}.jpg" alt="" ></div><div><img src="img/images${currentIdx+2}.jpg" alt="" ></div><div><img src="img/images${currentIdx+3}.jpg" alt="" ></div><div><img src="img/images${currentIdx+4}.jpg" alt="" ></div>`
+        }
+        else{
+          photos.innerHTML=`<div><img src="img/images${11}.jpg" alt="" ></div><div><img src="img/images${12}.jpg" alt="" ></div><div><img src="img/images${13}.jpg" alt="" ></div><div><img src="img/images${14}.jpg" alt="" ></div><div><img src="img/images${15}.jpg" alt="" ></div>`
+        }
+      }
+      $('#photos div:nth-child(1)').css({
+        border:"5px solid yellow"
+      })
+      if(currentIdx>=12){
+        $(`#photos div`).css({
+        border:"5px solid #3d3d3d"
+      })
+        $(`#photos div:nth-child(${currentIdx-10})`).css({
+        border:"5px solid yellow"
+      })
+      
+      }
+    });
+
+    next.addEventListener('click', function () {
+      // 마지막 슬라이드로 표시 됐을 때는
+      // 다음 버튼 눌러도 아무런 반응없게 하기 위해
+      // currentIdx !== slideCount - 1 일 때만
+      // moveSlide 함수 불러옴
+      if (currentIdx !== slideCount - 1) {
+        moveSlide(currentIdx + 1);
+        console.log(currentIdx);
+      
+        if(currentIdx <=11){
+          photos.innerHTML=`<div><img src="img/images${currentIdx}.jpg" alt="" ></div><div><img src="img/images${currentIdx+1}.jpg" alt="" ></div><div><img src="img/images${currentIdx+2}.jpg" alt="" ></div><div><img src="img/images${currentIdx+3}.jpg" alt="" ></div><div><img src="img/images${currentIdx+4}.jpg" alt="" ></div>`
+        }
+        else{
+          photos.innerHTML=`<div><img src="img/images${11}.jpg" alt="" ></div><div><img src="img/images${12}.jpg" alt="" ></div><div><img src="img/images${13}.jpg" alt="" ></div><div><img src="img/images${14}.jpg" alt="" ></div><div><img src="img/images${15}.jpg" alt="" ></div>`
+        }
+      }
+      $('#photos div:nth-child(1)').css({
+        border:"5px solid yellow"
+      })
+      if(currentIdx>=12){
+        $(`#photos div`).css({
+        border:"5px solid #3d3d3d"
+      })
+        $(`#photos div:nth-child(${currentIdx-10})`).css({
+        border:"5px solid yellow"
+      })
+      
+      }
+
+    })
+  function click_moveImg(){
+    for(i=0;i<15;i++){
+      switch(filename){}
+    }
+    slides.style.left = -num * 400 + 'px';
+  }
+
+  </script>
+</body>
+
+</html>

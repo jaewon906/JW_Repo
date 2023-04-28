@@ -1,0 +1,38 @@
+.disappear_box [id *= "_box"]{
+    margin-top:5px;
+    width:90%; 
+    height:auto;
+    display:none;
+    
+}
+/* 각 옵션 크기 */
+ [id*="_box"] [id*="i"] {
+    width:60px;
+    height:60px;
+    display:inline-block; 
+    border:1px solid rgba(0, 0, 0, 0.281);
+    z-index:-1;  
+} 
+/* 옵션 선택 시 확대되는 효과 */
+ .group1:hover{
+    transform:scale(1.1);
+    /* box-shadow : x-offset y-offset blur spread color inner */
+    box-shadow: 0px 0px 3px 1px rgb(34, 34, 34) ;
+   
+
+} 
+#exterior_colour_box{
+ font-size:14px;
+ font-weight:100;
+}    
+#wheels_box{}
+#painted_wheels_box{}
+#wheel_accessories_box{}
+#interior_box{}
+#seats_box{}
+#stiching_box{}
+#epuipment_packages_box{}
+#exterior_box{}
+#chassis_box{}
+#leather_deco_box{}
+#paint_exterior_box{}

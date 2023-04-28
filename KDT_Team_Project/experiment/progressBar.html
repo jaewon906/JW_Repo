@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;padding:0;
+        }
+        #scrolltop{
+            width:0px;
+            height:10px;
+            position:sticky;
+            top:0px;
+            background-color: red;
+            
+        }
+        body::-webkit-scrollbar{
+            display:none;
+        }
+        .scroll{
+            height:0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" style="width:100vw; height:500vh; background-color:gray">
+    <div id="scrolltop"></div>
+    </div>
+    <script>
+        let scrolltop = document.getElementById("scrolltop")
+        let container = document.getElementById("container")
+        document.addEventListener('scroll',() => {
+            let a = window.scrollY
+                b = container.offsetHeight
+                progressBar =  ((b-a) / b * 100);
+                console.log(progressBar)
+                x = container.scrollY
+            console.log(x)
+            scrolltop.style.width=progressBar + "%";
+        })
+    </script>
+</body>
+</html>

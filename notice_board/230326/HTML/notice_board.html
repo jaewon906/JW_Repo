@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="../css/notice_board.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <!-- favicon -->
+    <link rel="icon" href="../img/icecream_favicon.png">
+    <!-- script -->
+    <script src="https://kit.fontawesome.com/ab37fbcfbd.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+
+    <title>컴패니 - 게시판</title>
+</head>
+
+<body>
+    <div id="container">
+        <!-- 모달 창 시작 -->
+        <div id="modal_aroundBlur">
+            <div id="modal">
+                <div id="modal_head"><i style="margin-left: -10px;">company</i><i class="fa-solid fa-x"></i></div>
+                <div id="modal_main">
+                    <div id=IDPW_box>
+                        <input id="inputID" placeholder="아이디" focus />
+                        <input id="inputPW" placeholder="비밀번호" />
+                    </div>
+                    <div id="loginFailText"></div>
+                    <button id="logIn">로그인</button><br />
+                    <div id="doSignUp">
+                        <p>아직 회원이 아니세요?</p> <a href=""><button type="button">회원가입</button></a>
+                    </div>
+                    <div id="saveIDANdForgotIDPWDiv">
+                        <div id="saveID">
+                            <input id="saveIDCheckBox" type="checkbox">
+                            <p>아이디저장</p>
+                        </div>
+                        <div id="forgotIDPW">
+                            <a href="">아이디 찾기</a>
+                            <a href>비밀번호 찾기</a>
+                        </div>
+                    </div>
+                    <div id="or_box">
+                        <p style="font-size: 10px; margin-top: 10px;">또는</p>
+                    </div>
+                </div>
+                <div id="modal_foot">
+                    <div>
+                        <a href=""><img src="../img/kakao_logo.png" /></a>
+                        <a href=""><img src="../img/naver_logo.png" /></a>
+                        <a href=""><img src="../img/instagram_logo.png" /></a>
+                        <a href=""><img src="../img/facebook_logo.png" /></a>
+                        <a href=""><img src="../img/twitter_logo.png" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 모달 창 끝 -->
+        <!-- 헤더 시작 -->
+        <header>
+            <div id="header_list">
+                <div id="companyLogo">
+                    <a href="index.html"><i>Company</i></a>
+                </div>
+            </div>
+            <div id="signIn_Up">
+                <div id="welcome">
+
+                </div>
+                <div class="signIn">
+                    <a href="#">로그인</a>
+                </div>
+                <div id="signOut">
+                    <a href="#">로그아웃</a>
+                </div>
+                <div id="signUp">
+                    <a href="signUp.html">회원가입</a>
+                </div>
+                <div id="withdrawal">
+                    <a href="">회원탈퇴</a>
+                </div>
+            </div>
+        </header>
+        <!-- 헤더 끝 -->
+        <!-- 상단 스크롤 바 -->
+        <div id="progressBar"></div>
+        <!-- 게시판 종류 -->
+        <main>
+            <div id="board_contents_list">
+                <div class="typeOfNoticeBoard" data-value="게시판 카테고리" id="category_board">게시판 카테고리</div>
+                <div class="typeOfNoticeBoard" data-value="자유 게시판" id="free_board">자유 게시판</div>
+                <div class="typeOfNoticeBoard" data-value="리뷰 게시판" id="review_board">리뷰 게시판</div>
+                <div class="typeOfNoticeBoard" data-value="자료실 게시판" id="file_board">자료실 게시판</div>
+                <div class="typeOfNoticeBoard" data-value="HOT 게시글" id="hot_board">HOT 게시글</div>
+            </div>
+            <div id="board_container">
+                <!-- 해당하는 게시판 이름 & 게시글 수 -->
+                <div id="board_title">
+                    <p id="board_title_name">자유 게시판</p>
+                    <div id=notice_listAmountPerPage>
+                        <label>표시할 게시글 수 : </label>
+                        <select>
+                            <option value="10">10개</option>
+                            <option value="50">50개</option>
+                            <option value="100">100개</option>
+                            <option value="300">300개</option>
+                            <option value="1000">1000개</option>
+                            <option>전체</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- 게시글 -->
+                <div id="board_main">
+                    <div id="board_main_head">
+                        <div class="No">No.</div>
+                        <div class="title">제목</div>
+                        <div class="author">작성자</div>
+                        <div class="typed_time">작성 시간</div>
+                        <div class="like">좋아요</div>
+                    </div>
+                    <div id="notice_list_box">
+
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+                        <div class="notice_list">
+                            <div class="No">No.</div>
+                            <div class="title"><a href="">제목</a></div>
+                            <div class="author">작성자</div>
+                            <div class="typed_time">작성 시간</div>
+                            <div class="like">좋아요</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="page_nav">
+                    <p id="pageMoveForward">&lt;&lt;</p>
+                    <div id="page_number_box">
+                        <a>1</a>
+                        <a>2</a>
+                        <a>3</a>
+                        <a>4</a>
+                        <a>5</a>
+                    </div>
+                    <p id="pageMoveBack">&gt;&gt;</p>
+                </div>
+                <div id="button_box">
+                    <a id="addUrl_write" href="write.html"><button class=needToLogIn id="write_button">글쓰기</button></a>
+                    <a id="addUrl_modify"><button class=needToLogIn id="modify_button">수정하기</button></a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

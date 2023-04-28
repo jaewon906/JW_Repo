@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="aa" value="12">1</div>
+    <div class="aa" value="123">2</div>
+    <div class="aa" value="1234">3</div>
+    <div class="aa" value="12345">4</div>
+    <div class="aa" value="123456">5</div>
+    <script>
+        let aa = document.getElementsByClassName("aa"),
+            iterator = aa[Symbol.iterator]()
+        for(i=0;i<aa.length;i++){
+
+        }
+    </script>
+</body>
+</html> 
+<!-- 각 div 요소의 value 속성 값을 정상적으로 출력합니다. 
+하지만, HTML 표준에서는 value 속성이 일반적으로 input 태그와 같은 form 요소에 사용되기 때문에,
+ div 요소에서는 data-* 속성을 사용하는 것이 좋습니다. 
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="aa" value="12"></div>
+    <div class="aa" value="123"></div>
+    <div class="aa" value="1234"></div>
+    <div class="aa" value="12345"></div>
+    <div class="aa" value="123456"></div>
+    <script>
+        let aa=document.getElementsByClassName("aa");
+
+        for(var i=0; i<aa.length; i++){
+      
+            bb=aa[0].value
+        }
+        
+        console.log(bb)
+    </script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="aa" data-value="12"></div>
+    <div class="aa" data-value="123"></div>
+    <div class="aa" data-value="1234"></div>
+    <div class="aa" data-value="12345"></div>
+    <div class="aa" data-value="123456"></div>
+    <script>
+        let aa = document.getElementsByClassName("aa");
+
+        for (var i = 0; i < aa.length; i++) {
+            let bb = aa[i].getAttribute('data-value');
+            console.log(bb);
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!-- 코드에서 bb=aa[0].value 라인이 for 반복문 내부에 있어서 문제가 발생하고 있습니다.
+ 이 경우, bb에 대한 값을 덮어씌우는 과정이 반복되어 마지막으로 얻은 값만 출력됩니다.
+ 하지만 실제로 출력되지 않은 이유는 value 속성이 div 요소에 적용되지 않기 때문입니다. 
+ div 요소에서는 data-* 속성을 사용하거나, 
+ JavaScript에서 getAttribute()를 사용하여 값을 가져올 수 있습니다. -->
