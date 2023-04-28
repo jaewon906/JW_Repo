@@ -4,7 +4,7 @@ let  a = [],
   f = 0,
   t = 0;
 
-function contentsSelect(contentsData, resultData, e) {
+function contentsSelect(contentsData, resultData,a, e) {
   // 각각 컨텐츠에 해당하는 스위치 배열을 만들었다 이를 통해서 컨텐츠를 골랐을 때
   // (true) 해제할 때 (false) 를 통해 장바구니 활성화 예정
   if (d === true) {
@@ -20,7 +20,7 @@ function contentsSelect(contentsData, resultData, e) {
       c[j] = !c[j];
 
       switch (c[j]) {
-        // 해당하는 컨텐츠를 눌렀을 때 세션 스토리지에 보낼 데이터
+        // 해당하는 컨텐츠를 담았을 때 세션 스토리지에 보낼 데이터 추가 & 가격 더하기 
         case true:
           if(a.length<5){
 
@@ -30,8 +30,8 @@ function contentsSelect(contentsData, resultData, e) {
           }
             break;
 
+        // 해당하는 컨텐츠를 뺐을 때 해당하는 id의 price를 빼줌 & 해당하는 id의 컨텐츠 데이터 제거
         case false:
-          // 클릭했을 때 해당하는 id의 price를 빼줌
           f = a.find((x) => x.id === e.target.id);
           t -= f.price;
           a = a.filter((x) => x.id !== e.target.id);
