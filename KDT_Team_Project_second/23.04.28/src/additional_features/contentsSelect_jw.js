@@ -1,6 +1,5 @@
 let c = [],
-    d = true,
-    g = 0;
+    d = true
     // f = [];
 
 function contentsSelect(contentsData, resultData, a, e) {
@@ -13,16 +12,17 @@ function contentsSelect(contentsData, resultData, a, e) {
     }
     d = false;
   }
-  // 해당하는 컨텐츠를 누를 때 true <-> false 변경
+  
+    // 해당하는 컨텐츠를 누를 때 true <-> false 변경
   for (var j = 0; j < contentsData.length; j++) {
-    if (resultData.id === `ID${j + 1}`) {
+    if (resultData.id === `ID${j + 1}` && a.length<5) {
       c[j] = !c[j];
+
       switch (c[j]) {
   // 해당하는 컨텐츠를 눌렀을 때 세션 스토리지에 보낼 데이터 
         case true:       
           if (a.length < 5) {
             a.push(resultData);
-            console.log("aaaaaaaaaaaaaaaaa",a)
           }
           else{
             
@@ -30,9 +30,8 @@ function contentsSelect(contentsData, resultData, a, e) {
           break;
 
         case false:
-          g = a.filter((x) => x.id === e.target.id);
-          console.log("filter : ",g)
-           a = g;
+           a=a.filter((x) => x.id === e.target.id);
+           console.log("filter : ",a)
            // 클릭했을 때 해당하는 id의 price를 빼줌
           //  f = a.find(x=>x.id===e.target.id)
           //  a -= f.price
@@ -42,6 +41,8 @@ function contentsSelect(contentsData, resultData, a, e) {
       }
     }
   }
+  
+  console.log("cccccccccccccccc",c)
  
   return c;
 }

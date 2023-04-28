@@ -1,4 +1,3 @@
-
 .container{
     margin-top: 20px;
     width:100%;
@@ -14,7 +13,6 @@
 .mainLeft{
     width:1052px;
     height:auto;
-
 
 }
 .mainLeft > .swiperArea{
@@ -174,7 +172,17 @@
 .contentArea:hover {
     background-color: rgb(168, 223, 255);
 }
-.contentArea > .content{
+.subscribeContentBox > .contentArea1{
+    width: 250px;
+    height: 210px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgb(168, 223, 255);
+    box-shadow: 1px 1px 2px 1px rgb(207, 207, 207);
+    
+}
+ .content{
     width: 170px;
     display: flex;
     flex-direction: column;
@@ -183,6 +191,7 @@
     position: relative;
 
 }
+
 .content > .contentTitle{
     width:90%;
     text-align: center;
@@ -191,9 +200,26 @@
     position: absolute;
 
 }
+.contentTitle1{
+    width:90%;
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    color:white
+
+}
 .content > .contentText{
     font-size: 12px;
     color:gray;
+    font-family: dongle;
+    text-align: center;
+    position: absolute;
+    top:60px;
+}
+.contentText1{
+    font-size: 12px;
+    color:rgb(255, 255, 255);
     font-family: dongle;
     text-align: center;
     position: absolute;
@@ -214,6 +240,13 @@
     top:90px;
     transition: transform 0.2s, border-color 0.5s;
 }
+
+/* .addBtn > a:nth-child(2){
+    position :absolute;
+    margin:1px 0px 0px -8px;
+    font-size:13px;
+} */
+
 .subscribeContentBox > .priceTextArea{
     width:auto;
     height:100px;
