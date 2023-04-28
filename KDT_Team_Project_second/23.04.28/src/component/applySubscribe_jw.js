@@ -10,8 +10,7 @@ import useAxios from "../additional_features/useAxios_jw";
 import contentsSelect from "../additional_features/contentsSelect_jw";
 import sessionStorage from "../additional_features/sessionStorage_jw";
 
-const a = [];
-
+let [a,b,t] = [[],[],0];
 function ApplySubscribe_jw() {
   const contentsData = useAxios("http://localhost:4000/data"),
     [totalPrice, setTotalPrice] = useState(0),
@@ -25,16 +24,17 @@ function ApplySubscribe_jw() {
 
   useEffect(() => {
     dispatch(contentGetRdc(contentsData));
-  });
+  },[contentsData]);
 
   function counter() {}
 
   function addBtnOnClick(e) {
     const resultData = contentsData.find((x) => x.id === e.target.id);
 
-    setTotalPrice(5);
+    [a,b,t] = contentsSelect(contentsData, resultData, e)
 
-    setOnOff(contentsSelect(contentsData, resultData, a, e))
+    setTotalPrice(t);
+    setOnOff(b)
 
     dispatch(getKeyConvertJSRdc(sessionStorage(a)));
     dispatch(compareIDRdc(e.target.id));

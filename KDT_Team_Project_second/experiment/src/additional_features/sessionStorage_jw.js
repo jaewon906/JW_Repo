@@ -2,7 +2,6 @@ function sessionStorage(a){
 /////                            세션 스토리지                         ///////////////
 
     // 추가한 배열을 JSON으로 변환. 세션은 JSON (문자열) 만 저장 가능
-    console.log("SessionStorage : ",a )
     const aConvertJson = JSON.stringify(a);
     // 세션 스토리지 호출
     const sessionStorage = window.sessionStorage;

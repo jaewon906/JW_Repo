@@ -7,17 +7,14 @@ import Slide from "./swiper_jw";
 import { useDispatch, useSelector } from "react-redux";
 import { contentGetRdc, compareIDRdc, getKeyConvertJSRdc } from "../data/data";
 import useAxios from "../additional_features/useAxios_jw";
-import onOffArr from "../additional_features/onOffArr";
 import contentsSelect from "../additional_features/contentsSelect_jw";
 import sessionStorage from "../additional_features/sessionStorage_jw";
 
-const a = [];
-
+let [a,b,t] = [[],[],0];
 function ApplySubscribe_jw() {
   const contentsData = useAxios("http://localhost:4000/data"),
     [totalPrice, setTotalPrice] = useState(0),
     [onOff, setOnOff] = useState([]),
-    [b, setB] = useState([]),
     [isTrue, setIsTrue] = useState(),
     data = useSelector((store) => store.dataSet),
     key = data.getKeyConvertJS,
@@ -27,17 +24,19 @@ function ApplySubscribe_jw() {
 
   useEffect(() => {
     dispatch(contentGetRdc(contentsData));
-  });
+  },[contentsData]);
 
   function counter() {}
 
   function addBtnOnClick(e) {
     const resultData = contentsData.find((x) => x.id === e.target.id);
 
-    setTotalPrice(5);
-   setOnOff(onOffArr(contentsData, resultData, a))
-    setB(contentsSelect(contentsData, resultData, a, onOff, e))
-    dispatch(getKeyConvertJSRdc(sessionStorage(b)));
+    [a,b,t] = contentsSelect(contentsData, resultData, e)
+
+    setTotalPrice(t);
+    setOnOff(b)
+
+    dispatch(getKeyConvertJSRdc(sessionStorage(a)));
     dispatch(compareIDRdc(e.target.id));
 
   }
@@ -47,14 +46,14 @@ function ApplySubscribe_jw() {
   //  즉 버튼을 누를 때 마다 실행. onOff.include(true) 함수는 onOff 배열 중 하나라도 true가 있는지
   //  검사해주는 함수이다. 하나라도 일치하면 true, 아니면 false
   useEffect(() => {
-  
+   
       if (onOff) {
         setIsTrue(onOff.includes(true));
       }
     
   }, [onOff]);
 
-  // console.log("isTrue? : ", isTrue);
+  console.log("isTrue? : ", isTrue);
   // console.log("applySubscribe rendering..");
   return (
     <>   

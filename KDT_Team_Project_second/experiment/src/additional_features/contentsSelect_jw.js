@@ -1,28 +1,50 @@
-function contentsSelect(contentsData, resultData, a, c, e) {
+let  a = [],
+  c = [],
+  d = true,
+  f = 0,
+  t = 0;
 
+function contentsSelect(contentsData, resultData, e) {
+  // 각각 컨텐츠에 해당하는 스위치 배열을 만들었다 이를 통해서 컨텐츠를 골랐을 때
+  // (true) 해제할 때 (false) 를 통해 장바구니 활성화 예정
+  if (d === true) {
+    for (var i = 0; i < contentsData.length; i++) {
+      c[i] = false;
+    }
+    d = false;
+  }
+
+  // 해당하는 컨텐츠를 누를 때 true <-> false 변경
   for (var j = 0; j < contentsData.length; j++) {
-    if (resultData.id === `ID${j + 1}` && a.length < 5 ) {
-    switch (c[j]) {
-      // 해당하는 컨텐츠를 눌렀을 때 세션 스토리지에 보낼 데이터
-      case true:
-          a.push(resultData);
-       
-        break;
+    if (resultData.id === `ID${j + 1}` && a.length < 5) {
+      c[j] = !c[j];
 
-      case false:
-        a = a.filter((x) => x.id !== e.target.id);
-        console.log("filter : ", a);
-        // 클릭했을 때 해당하는 id의 price를 빼줌
-        //  f = a.find(x=>x.id===e.target.id)
-        //  a -= f.price
-        break;
-      // ?1
-      default:
+      switch (c[j]) {
+        // 해당하는 컨텐츠를 눌렀을 때 세션 스토리지에 보낼 데이터
+        case true:
+          if(a.length<5){
+
+            a.push(resultData);
+            f = a.find((x) => x.id === e.target.id);
+            t += f.price;
+          }
+            break;
+
+        case false:
+          // 클릭했을 때 해당하는 id의 price를 빼줌
+          f = a.find((x) => x.id === e.target.id);
+          t -= f.price;
+          a = a.filter((x) => x.id !== e.target.id);
+
+          break;
+
+        default:
       }
     }
   }
-  // SessionStoraged에 보낼 데이터 리턴
-  return a;
+  console.log(c);
+
+  return [a, c, t];
 }
 
 export default contentsSelect;
