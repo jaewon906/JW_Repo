@@ -1,23 +1,37 @@
 import { useDispatch, useSelector } from 'react-redux';
 import style from '../css/addCart_jw.module.css'
-import { addCartbtn1Rdc } from '../data/data';
+import { addCartbtn1Rdc, getKeyConvertJSRdc,totalPriceRdc, onOffRdc, discountRdc} from '../data/data';
+import contentsSelect from '../additional_features/contentsSelect_jw';
+import sessionStorage from '../additional_features/sessionStorage_jw';
 
-let discount = 5000;
+
+let [a,c,t,d] = [[],[],0,0];
 
 function Addcart(props) {
     const data = useSelector(store => store.dataSet),
          btnCount = data.btnCount,
-         dispatch = useDispatch();
+         contentsData = data.contentsData,
+         dispatch = useDispatch(),
+         expectedPrice = Math.round((1 - ((props.totalPrice - props.discount) / props.totalPrice)) * 100)
 
-    function onOff() {
+    function cartDisplay() {
         dispatch(addCartbtn1Rdc(btnCount))
+    }
+    function deleteFn(e){
+        const resultData = contentsData.find((x) => x.id === e.target.id);
+        [a,c,t,d] = contentsSelect(contentsData, resultData, e);
+
+        dispatch(getKeyConvertJSRdc(sessionStorage(a)));
+        dispatch(totalPriceRdc(t))
+        // dispatch(onOffRdc(c))
+        dispatch(discountRdc(d))
     }
 
     // console.log('addCart rendering..')
     return (
 
         <div style={btnCount ? { height: '60px' } : null} className={style.container}>
-            <div className={style.header}>구독 장바구니<i onClick={onOff} className={btnCount ? `fa-solid fa-chevron-down` : 'fa-solid fa-chevron-up'}></i></div>
+            <div className={style.header}>구독 장바구니<i onClick={cartDisplay} className={btnCount ? `fa-solid fa-chevron-down` : 'fa-solid fa-chevron-up'}></i></div>
             {btnCount ? '' : <div className={style.main}>
                 <div className={style.addedContent}>담은상품<pre> </pre><span>{props.getKeyConvertJS.length}</span></div>
                 <div className={style.amountsOfContentsIs5}>한번에 5개까지 신청할 수 있어요</div>
@@ -28,7 +42,7 @@ function Addcart(props) {
                         return (
                             <li key={value.id}>
                                 <div className={style.contentArea}>
-                                    <div className={style.xBtn}>x</div>
+                                    <div id={value.id} onClick={deleteFn} className={style.xBtn}>x</div>
                                     <div className={style.content}>
                                         <img src={value.url} alt=""/>
                                         <div>{value.title}</div>
@@ -49,13 +63,13 @@ function Addcart(props) {
                 </div>
                 <div className={style.discount}>
                     <div>할인</div>
-                    <div>- {discount}원</div>
+                    <div>- {props.discount}원</div>
                 </div>
                 <div className={style.totalPay}>
                     <div>예상 구독료</div>
                     <div>
-                        <div>{Math.round((1 - ((props.totalPrice - discount) / props.totalPrice)) * 100) + '%'}</div>
-                        <div>월 {props.totalPrice - discount}원</div>
+                        <div>{expectedPrice===undefined ? "" : expectedPrice + '%'}</div>
+                        <div>월 {props.totalPrice - props.discount}원</div>
                     </div>
                 </div>
                 <div className={style.confirmBtn}>구독 신청하기</div>

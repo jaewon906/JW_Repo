@@ -52,6 +52,7 @@
         overflow: auto;
         width:105.5%;
         height:250px;
+        margin-top:10px;
         
 }
 .asdf::-webkit-scrollbar{
@@ -112,7 +113,7 @@
 
 }
 .content > div:nth-child(2){
-    margin-left: 10px;
+    margin: 0px 10px 0px 10px;
     width:130px;
 }
 .content > div:nth-child(3){

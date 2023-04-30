@@ -6,7 +6,9 @@
       "text": "넷플릭스에서 영화와 시리즈를 무제한 즐기세요.",
       "url": "https://image.lguplus.com/static/pc-contents/images/pogg/20221207-113523-257-smDkUeeQ.png",
       "price": 9500,
-      "checked":false
+      "discount":1200,
+      "category" : "OTT/뮤직",
+      "checked" : false
     },
     {
       "id": "ID2",
@@ -14,7 +16,9 @@
       "text": "우리 동네 맛집이 그 맛 그대로 빠르게.",
       "url": "https://image.lguplus.com/static/pc-contents/images/pogg/20221207-115615-813-NA8POmys.png",
       "price": 12000,
-      "checked":false
+      "discount":500,
+      "category" : "먹거리",
+      "checked" : false
     },
     {
       "id": "ID3",
@@ -22,7 +26,9 @@
       "text": "광고 없는 감상. 오프라인 저장, 백그라운드 저장.",
       "url": "https://image.lguplus.com/static/pc-contents/images/pogg/20221207-011122-103-U7ZZUkUo.png",
       "price": 10450,
-      "checked":false
+      "discount":2000,
+      "category" : "OTT/뮤직",
+      "checked" : false
     },
     {
       "id": "ID4",
@@ -30,7 +36,9 @@
       "text": "내가 좋아하는 모든 이야기가 여기에",
       "url": "https://image.lguplus.com/static/pc-contents/images/pogg/20221207-120012-670-TCPY3HyD.png",
       "price": 9900,
-      "checked":false
+      "discount":3000,
+      "category" : "OTT/뮤직",
+      "checked" : false
     },
     {
       "id": "ID5",
@@ -38,7 +46,9 @@
       "text": "티빙의 재미를 무제한 스트리밍 하세요",
       "url": "https://image.lguplus.com/static/pc-contents/images/pogg/20221207-122652-330-Md7p9keZ.png",
       "price": 7900,
-      "checked":false
+      "discount":1500,
+      "category" : "OTT/뮤직",
+      "checked" : false
     },
     {
       "id": "ID6",
@@ -46,7 +56,9 @@
       "text": "독서하기 좋은 계절엔 밀리의 서재.",
       "url": "https://image.lguplus.com/static/pc-contents/images/pogg/20230327-044234-158-WVwns6aB.gif",
       "price": 9900,
-      "checked":false
+      "discount":2500,
+      "category" : "자기개발",
+      "checked" : false
     },
     {
       "id": "ID7",
@@ -54,7 +66,9 @@
       "text": "건강한 아름다움을 제안하는 H&B 스토어",
       "url": "https://image.lguplus.com/static/pc-contents/images/pogg/20221207-115230-854-OQqzIrYr.png",
       "price": 10000,
-      "checked":false
+      "discount":1000,
+      "category" : "자기관리",
+      "checked" : false
     },
     {
       "id": "ID8",
@@ -62,7 +76,9 @@
       "text": "데이터 걱정 없이, 무제한 음악감상 하세요.",
       "url": "https://image.lguplus.com/static/pc-contents/images/pogg/20221207-122849-858-UVoQckXh.png",
       "price": 7700,
-      "checked":false
+      "discount":990,
+      "category" : "OTT/뮤직",
+      "checked" : false
     }
   ]
 }
