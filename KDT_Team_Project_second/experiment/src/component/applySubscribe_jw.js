@@ -2,86 +2,94 @@ import style from "../css/applySubscribe_jw.module.css";
 //useRef 는 직접 DOM 요소를 건들여야할 때 해당하는 요소에 ref={name}을 부여하고
 // const aa = useRef(name) 으로 하면 aa는 name에 해당하는 요소들을 가져올 수 있다.
 import { useEffect, useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 import AddCart from "./addCart_jw";
 import Slide from "./swiper_jw";
-import { useDispatch, useSelector } from "react-redux";
 import {
   contentGetRdc,
   compareIDRdc,
   getKeyConvertJSRdc,
   totalPriceRdc,
-  onOffRdc,
-  discountRdc
+  discountRdc,
 } from "../data/data";
 import useAxios from "../additional_features/useAxios_jw";
 import contentsSelect from "../additional_features/contentsSelect_jw";
 import sessionStorage from "../additional_features/sessionStorage_jw";
 import CanvasImage from "../additional_features/canvasRGB_jw";
 import comma from "../additional_features/amount_notation";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 let [a, c, t, d] = [[], [], 0, 0];
 
 function ApplySubscribe_jw() {
+
   const contentsData = useAxios("http://localhost:4000/data"),
     [filteredData, setFilteredData] = useState([]),
     [onOff, setOnOff] = useState([]),
+    [menuOnOff, setMenuOnOff] = useState([]),
     [isTrue, setIsTrue] = useState(),
-    [onOff1, setOnOff1] = useState(),
     data = useSelector((store) => store.dataSet),
     key = data.getKeyConvertJS,
     totalPrice = data.totalPrice,
     discount = data.discount,
     cc = data.onOffArr,
-    ID = data.id,
     dispatch = useDispatch();
+
+  let { categoryNum } = useParams();
+  console.log(categoryNum);
 
   const canvasRef = useRef(null);
 
-  useEffect(()=>{
-
-      for (var i = 0; i < contentsData.length; i++) {
-        c[i] = false;
-      }
-    
-    setOnOff1(c)
-  },[contentsData])
+  const categories = [
+    { link: "/main", category: "all" },
+    { link: "/main", category: "OTT/뮤직" },
+    { link: "/main", category: "자기개발" },
+    { link: "/main", category: "도서/아티클" },
+    { link: "/main", category: "자기관리" },
+    { link: "/main", category: "유쓰" },
+    { link: "/main", category: "단기렌탈" },
+    { link: "/main", category: "반려동물" },
+    { link: "/main", category: "여행" },
+  ];
 
   useEffect(() => {
     dispatch(contentGetRdc(contentsData));
-  }, [contentsData]);
+    setFilteredData(contentsData);
+    let m = [true, false, false, false, false, false, false, false, false];
+    setMenuOnOff(m);
+  }, [dispatch, contentsData]);
 
-  useEffect(()=>{
-    setFilteredData(contentsData)
-  },[contentsData])
+  // 카테고리를 눌렀을 때 함수
+  function menuClick(e) {
+    let [f, m, i] = [[], [], 0];
 
-  function menuFilter(e) {
-    let [f,g,h] = [[],[],[]]
-
-    if(e.target.id!=="all"){
-      f = contentsData.filter(x => x.category === e.target.id)
-      setFilteredData(f)  
-
-        f.forEach(element=>{
-           h =[...h, (parseInt(element.id.slice(2,3))-1)]
-        })
-        h.forEach(element =>{
-          console.log(onOff[element])
-          g = [...g, onOff[element]]
-        })
-        setOnOff1(g)
-      }
-    
-    else{
-      f = contentsData
-      setOnOff1(onOff)
-      setFilteredData(f)
+    for(var j=0; j<categories.length; j++){
+      m[j] = false
     }
 
+    categories.forEach(element=>{
+      switch (e.target.id) {
+        case element.category: m[i]=true;break;
+      }
+      i++
+     })
+     
+    if (e.target.id !== "all") {
+      f = contentsData.filter((x) => x.category === e.target.id);
+      setFilteredData(f);
+    } else {
+      f = contentsData;
+      setFilteredData(f);
+    }
+
+    setMenuOnOff(m);
   }
-  
+
+  // +담기 버튼을 클릭 시 함수
   function addBtnOnClick(e) {
     const resultData = contentsData.find((x) => x.id === e.target.id);
-    [a, c, t, d] = contentsSelect(contentsData, resultData, c, e);
+    [a, c, t, d] = contentsSelect(filteredData, resultData, e);
 
     setOnOff(c);
 
@@ -134,34 +142,45 @@ function ApplySubscribe_jw() {
               많은 사랑 부탁드립니다.
             </div>
             <div className={style.menuArea}>
-              <div  className={style.menu1}>
-                <p id="all" onClick={menuFilter}>전체</p>
+              <Swiper pagination={{ clickable: true }}>
+                <SwiperSlide className={style.swiperSlide}>
+                  {categories.map((value, index) => {
+                    return (
+                      <div
+                        className={menuOnOff[index] ? style.menu1 : style.menu}
+                      >
+                        <Link
+                          to={value.link}
+                          id={value.category}
+                          onClick={menuClick}
+                        >
+                          {value.category}
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </SwiperSlide>
+                <SwiperSlide className={style.swiperSlide}>
+                  {categories.map((value, index) => {
+                    return (
+                      <div
+                        className={menuOnOff[index] ? style.menu1 : style.menu}
+                      >
+                        <Link
+                          to={value.link}
+                          id={value.category}
+                          onClick={menuClick}
+                        >
+                          {value.category}
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </SwiperSlide>
+              </Swiper>
+              <div className={style.menuBtn}>
+                <div>＾</div>
               </div>
-              <div className={style.menu2}>
-                <p id="OTT/뮤직" onClick={menuFilter}>OTT/뮤직</p>
-              </div>
-              <div className={style.menu3}>
-                <p id="자기개발" onClick={menuFilter}>자기개발</p>
-              </div>
-              <div className={style.menu4}>
-                <p id="도서/아티클" onClick={menuFilter}>도서/아티클</p>
-              </div>
-              <div className={style.menu5}>
-                <p id="자기관리" onClick={menuFilter}>자기관리</p>
-              </div>
-              <div className={style.menu6}>
-                <p id="유쓰"  onClick={menuFilter}>유쓰</p>
-              </div>
-              <div className={style.menu7}>
-                <p id="단기렌탈" onClick={menuFilter}>단기렌탈</p>
-              </div>
-              <div className={style.menu8}>
-                <p id="반려동물" onClick={menuFilter}>반려동물</p>
-              </div>
-              <div className={style.menu9}>
-                <p id="여행" onClick={menuFilter}>여행</p>
-              </div>
-              <div className={style.menuBtn}>＾</div>
             </div>
             <div className={style.subscribeContentArea}>
               {filteredData.map((value, index) => {
@@ -171,7 +190,7 @@ function ApplySubscribe_jw() {
                     ref={canvasRef}
                     className={style.subscribeContentBox}
                   >
-                    {onOff1[index] ? (
+                    {onOff[index] ? (
                       <>
                         <CanvasImage url={value.url} />
                       </>
@@ -183,13 +202,13 @@ function ApplySubscribe_jw() {
                     </div>
                     <div
                       className={
-                        onOff1[index] ? style.contentArea1 : style.contentArea
+                        onOff[index] ? style.contentArea1 : style.contentArea
                       }
                     >
                       <div className={style.content}>
                         <div
                           className={
-                            onOff1[index]
+                            onOff[index]
                               ? style.contentTitle1
                               : style.contentTitle
                           }
@@ -198,7 +217,7 @@ function ApplySubscribe_jw() {
                         </div>
                         <div
                           className={
-                            onOff1[index]
+                            onOff[index]
                               ? style.contentText1
                               : style.contentText
                           }
@@ -210,7 +229,7 @@ function ApplySubscribe_jw() {
                           onClick={addBtnOnClick}
                           className={style.addBtn}
                         >
-                          {onOff1[index] ? "- 빼기 " : "+ 담기"}
+                          {onOff[index] ? "- 빼기 " : "+ 담기"}
                         </button>
                       </div>
                     </div>
@@ -224,7 +243,9 @@ function ApplySubscribe_jw() {
                         </div>
                         <div>월 {comma(value.price - value.discount)}원</div>
                       </div>
-                      <div><strike>월 {comma(value.price)} 원</strike></div>
+                      <div>
+                        <strike>월 {comma(value.price)} 원</strike>
+                      </div>
                     </div>
                   </div>
                 );
@@ -235,9 +256,10 @@ function ApplySubscribe_jw() {
             <div className={style.rightContentArea}>
               {isTrue ? (
                 <AddCart
+                  c={onOff}
                   totalPrice={totalPrice}
                   getKeyConvertJS={key}
-                  discount = {discount}
+                  discount={discount}
                 />
               ) : (
                 ""

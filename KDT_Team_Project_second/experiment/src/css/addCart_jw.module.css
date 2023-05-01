@@ -173,4 +173,5 @@ li{
 }
 .confirmBtn:hover{
     background-color: rgb(247, 64, 134);
+    cursor: pointer;
 }

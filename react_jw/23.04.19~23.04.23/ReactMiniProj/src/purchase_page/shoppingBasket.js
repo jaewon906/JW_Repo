@@ -8,7 +8,6 @@ function ShoppingBasket() {
     /* useParams를 활용하려면 Route path='~~~/:productId' 경로가 있는 해당 컴포넌트 안에서 
     useParams를 사용해야 한다.*/
     let { productId } = useParams();
-    console.log("useParams : ", productId)
     /* state.dataSet에서 dataSet은 rootReducer = combineReducers({}) 안에 있는 dataSet 이다.
     따라서 data를 콘솔 출력해보면 initialState에 있는 데이터들이 존재한다.*/
     

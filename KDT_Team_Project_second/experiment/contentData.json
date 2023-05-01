@@ -8,7 +8,7 @@
       "price": 9500,
       "discount":1200,
       "category" : "OTT/뮤직",
-      "checked" : false
+      "checked" : "false"
     },
     {
       "id": "ID2",
@@ -18,7 +18,7 @@
       "price": 12000,
       "discount":500,
       "category" : "먹거리",
-      "checked" : false
+      "checked" : "false"
     },
     {
       "id": "ID3",
@@ -28,7 +28,7 @@
       "price": 10450,
       "discount":2000,
       "category" : "OTT/뮤직",
-      "checked" : false
+      "checked" : "false"
     },
     {
       "id": "ID4",
@@ -38,7 +38,7 @@
       "price": 9900,
       "discount":3000,
       "category" : "OTT/뮤직",
-      "checked" : false
+      "checked" : "false"
     },
     {
       "id": "ID5",
@@ -48,7 +48,7 @@
       "price": 7900,
       "discount":1500,
       "category" : "OTT/뮤직",
-      "checked" : false
+      "checked" : "false"
     },
     {
       "id": "ID6",
@@ -58,7 +58,7 @@
       "price": 9900,
       "discount":2500,
       "category" : "자기개발",
-      "checked" : false
+      "checked" : "false"
     },
     {
       "id": "ID7",
@@ -68,7 +68,7 @@
       "price": 10000,
       "discount":1000,
       "category" : "자기관리",
-      "checked" : false
+      "checked" : "false"
     },
     {
       "id": "ID8",
@@ -78,7 +78,7 @@
       "price": 7700,
       "discount":990,
       "category" : "OTT/뮤직",
-      "checked" : false
+      "checked" : "false"
     }
   ]
 }
