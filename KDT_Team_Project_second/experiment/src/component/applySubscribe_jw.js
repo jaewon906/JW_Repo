@@ -26,14 +26,25 @@ function ApplySubscribe_jw() {
     [filteredData, setFilteredData] = useState([]),
     [onOff, setOnOff] = useState([]),
     [isTrue, setIsTrue] = useState(),
+    [onOff1, setOnOff1] = useState(),
     data = useSelector((store) => store.dataSet),
     key = data.getKeyConvertJS,
     totalPrice = data.totalPrice,
     discount = data.discount,
     cc = data.onOffArr,
+    ID = data.id,
     dispatch = useDispatch();
 
   const canvasRef = useRef(null);
+
+  useEffect(()=>{
+
+      for (var i = 0; i < contentsData.length; i++) {
+        c[i] = false;
+      }
+    
+    setOnOff1(c)
+  },[contentsData])
 
   useEffect(() => {
     dispatch(contentGetRdc(contentsData));
@@ -43,23 +54,34 @@ function ApplySubscribe_jw() {
     setFilteredData(contentsData)
   },[contentsData])
 
-  function menu(e) {
-    let f = []
+  function menuFilter(e) {
+    let [f,g,h] = [[],[],[]]
+
     if(e.target.id!=="all"){
       f = contentsData.filter(x => x.category === e.target.id)
       setFilteredData(f)  
-    }
+
+        f.forEach(element=>{
+           h =[...h, (parseInt(element.id.slice(2,3))-1)]
+        })
+        h.forEach(element =>{
+          console.log(onOff[element])
+          g = [...g, onOff[element]]
+        })
+        setOnOff1(g)
+      }
+    
     else{
       f = contentsData
+      setOnOff1(onOff)
       setFilteredData(f)
     }
 
   }
   
-
   function addBtnOnClick(e) {
     const resultData = contentsData.find((x) => x.id === e.target.id);
-    [a, c, t, d] = contentsSelect(filteredData, resultData, e);
+    [a, c, t, d] = contentsSelect(contentsData, resultData, c, e);
 
     setOnOff(c);
 
@@ -113,31 +135,31 @@ function ApplySubscribe_jw() {
             </div>
             <div className={style.menuArea}>
               <div  className={style.menu1}>
-                <p id="all" onClick={menu}>전체</p>
+                <p id="all" onClick={menuFilter}>전체</p>
               </div>
               <div className={style.menu2}>
-                <p id="OTT/뮤직" onClick={menu}>OTT/뮤직</p>
+                <p id="OTT/뮤직" onClick={menuFilter}>OTT/뮤직</p>
               </div>
               <div className={style.menu3}>
-                <p id="자기개발" onClick={menu}>자기개발</p>
+                <p id="자기개발" onClick={menuFilter}>자기개발</p>
               </div>
               <div className={style.menu4}>
-                <p id="도서/아티클" onClick={menu}>도서/아티클</p>
+                <p id="도서/아티클" onClick={menuFilter}>도서/아티클</p>
               </div>
               <div className={style.menu5}>
-                <p id="자기관리" onClick={menu}>자기관리</p>
+                <p id="자기관리" onClick={menuFilter}>자기관리</p>
               </div>
               <div className={style.menu6}>
-                <p id="유쓰"  onClick={menu}>유쓰</p>
+                <p id="유쓰"  onClick={menuFilter}>유쓰</p>
               </div>
               <div className={style.menu7}>
-                <p id="단기렌탈" onClick={menu}>단기렌탈</p>
+                <p id="단기렌탈" onClick={menuFilter}>단기렌탈</p>
               </div>
               <div className={style.menu8}>
-                <p id="반려동물" onClick={menu}>반려동물</p>
+                <p id="반려동물" onClick={menuFilter}>반려동물</p>
               </div>
               <div className={style.menu9}>
-                <p id="여행" onClick={menu}>여행</p>
+                <p id="여행" onClick={menuFilter}>여행</p>
               </div>
               <div className={style.menuBtn}>＾</div>
             </div>
@@ -149,7 +171,7 @@ function ApplySubscribe_jw() {
                     ref={canvasRef}
                     className={style.subscribeContentBox}
                   >
-                    {onOff[index] ? (
+                    {onOff1[index] ? (
                       <>
                         <CanvasImage url={value.url} />
                       </>
@@ -161,13 +183,13 @@ function ApplySubscribe_jw() {
                     </div>
                     <div
                       className={
-                        onOff[index] ? style.contentArea1 : style.contentArea
+                        onOff1[index] ? style.contentArea1 : style.contentArea
                       }
                     >
                       <div className={style.content}>
                         <div
                           className={
-                            onOff[index]
+                            onOff1[index]
                               ? style.contentTitle1
                               : style.contentTitle
                           }
@@ -176,7 +198,7 @@ function ApplySubscribe_jw() {
                         </div>
                         <div
                           className={
-                            onOff[index]
+                            onOff1[index]
                               ? style.contentText1
                               : style.contentText
                           }
@@ -188,7 +210,7 @@ function ApplySubscribe_jw() {
                           onClick={addBtnOnClick}
                           className={style.addBtn}
                         >
-                          {onOff[index] ? "- 빼기 " : "+ 담기"}
+                          {onOff1[index] ? "- 빼기 " : "+ 담기"}
                         </button>
                       </div>
                     </div>
@@ -213,7 +235,6 @@ function ApplySubscribe_jw() {
             <div className={style.rightContentArea}>
               {isTrue ? (
                 <AddCart
-                  c={onOff}
                   totalPrice={totalPrice}
                   getKeyConvertJS={key}
                   discount = {discount}
