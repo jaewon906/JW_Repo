@@ -7,26 +7,27 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import style from './css/jw_app.module.css';
 import ScrollTop from './additional_features/jw_scrollTop';
 import rootReducer from "./data/jw_combineReducers";
-import App_jw from "./component/jw_App";
-import Footer_jw from './component/jw_footer';
-import TopBtn_jw from './component/jw_topBtn';
-import Header_JW from './component/jw_header'
+import Appjw from "./component/jw_App";
+import Footerjw from './component/jw_footer';
+import TopBtnjw from './component/jw_topBtn';
+import HeaderJW from './component/jw_header'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const store = configureStore({
   reducer: rootReducer,
   composeWithDevTools,
 });
+
 root.render(
   // store는 최상단 루트인 곳에서 Provider와 함께 사용해야 한다.
   <div className={style.container}>
   <Provider store={store}>
   <BrowserRouter>
     <ScrollTop />
-    <Header_JW />
-    <TopBtn_jw />
-    <App_jw />
-    <Footer_jw />
+    <HeaderJW />
+    <TopBtnjw />
+    <Appjw />
+    <Footerjw />
   </BrowserRouter>
   </Provider>
   </div>

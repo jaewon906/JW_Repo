@@ -1,5 +1,5 @@
 import style from '../css/jw_header.module.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {Link} from 'react-router-dom' 
 
 function Header_JW(){

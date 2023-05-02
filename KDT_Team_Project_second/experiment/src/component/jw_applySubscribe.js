@@ -32,7 +32,6 @@ function ApplySubscribe_jw() {
     key = data.getKeyConvertJS,
     totalPrice = data.totalPrice,
     discount = data.discount,
-    cc = data.onOffArr,
     dispatch = useDispatch();
 
   const canvasRef = useRef(null);
