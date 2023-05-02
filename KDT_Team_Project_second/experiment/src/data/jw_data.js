@@ -5,8 +5,6 @@ const initialState = {
   contentsData: [],
   // 구독 장바구니 onoff
   btnCount: false,
-  // +담기 버튼 누를 시 해당하는 컨텐츠의 id
-  id: [],
   // 장바구니에 담긴 데이터
   getKeyConvertJS: [],
   // 총 가격
@@ -28,10 +26,6 @@ const dataSet = createSlice({
     contentGetRdc: (state, action) => {
       state.contentsData = action.payload;
     },
-    // 특정 컨텐츠 누를 시 해당하는 Id 가져오기
-    compareIDRdc: (state, action) => {
-      state.id = action.payload;
-    },
     getKeyConvertJSRdc: (state, action) => {
       state.getKeyConvertJS = action.payload;
       console.log(state.getKeyConvertJS)
@@ -52,7 +46,6 @@ const dataSet = createSlice({
 export const {
   addCartbtn1Rdc,
   contentGetRdc,
-  compareIDRdc,
   getKeyConvertJSRdc,
   totalPriceRdc,
   onOffRdc,

@@ -1,32 +1,33 @@
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { configureStore } from '@reduxjs/toolkit';
-import { Provider } from 'react-redux';
-import rootReducer from './data/combineReducers';
-import reportWebVitals from './reportWebVitals';
-import App from './component/App';
-import TopBtnJW from './component/topBtn_JW';
-import HeaderJW from './component/header_jw';
-import ApplySubscribeJW from './component/applySubscribe_jw';
-import style from './css/app.module.css'
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import ReactDOM from "react-dom/client";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
+import { composeWithDevTools } from "redux-devtools-extension";
+import style from './css/jw_app.module.css';
+import ScrollTop from './additional_features/jw_scrollTop';
+import rootReducer from "./data/jw_combineReducers";
+import App_jw from "./component/jw_App";
+import Footer_jw from './component/jw_footer';
+import TopBtn_jw from './component/jw_topBtn';
+import Header_JW from './component/jw_header'
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 const store = configureStore({
-  reducer: rootReducer
-})
+  reducer: rootReducer,
+  composeWithDevTools,
+});
 root.render(
   // store는 최상단 루트인 곳에서 Provider와 함께 사용해야 한다.
   <div className={style.container}>
   <Provider store={store}>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/main' element={
-        <>
-          <TopBtnJW />
-          <HeaderJW />
-          <ApplySubscribeJW />
-        </>}/>
-      </Routes>
-    </BrowserRouter>
+  <BrowserRouter>
+    <ScrollTop />
+    <Header_JW />
+    <TopBtn_jw />
+    <App_jw />
+    <Footer_jw />
+  </BrowserRouter>
   </Provider>
   </div>
 

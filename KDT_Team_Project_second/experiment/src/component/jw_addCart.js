@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import style from "../css/addCart_jw.module.css";
+import style from "../css/jw_addCart.module.css";
 import {
   addCartbtn1Rdc,
   getKeyConvertJSRdc,
   totalPriceRdc,
   onOffRdc,
   discountRdc,
-} from "../data/data";
-import contentsSelect from "../additional_features/contentsSelect_jw";
-import sessionStorage from "../additional_features/sessionStorage_jw";
-import comma from "../additional_features/amount_notation";
+} from "../data/jw_data";
+import contentsSelect from "../additional_features/jw_contentsSelect";
+import sessionStorage from "../additional_features/jw_sessionStorage";
+import comma from "../additional_features/jw_amount_notation";
 
 let [a, c, t, d] = [[], [], 0, 0];
 
@@ -111,7 +111,8 @@ function Addcart(props) {
             <div>예상 구독료</div>
             <div>
               <div>
-                {expectedPrice === "" ? "" : expectedPrice + "%" }
+                {console.log(expectedPrice)}
+                {expectedPrice === NaN ? "" : expectedPrice + "%" }
               </div>
               <div>월 {comma(props.totalPrice - props.discount)}원</div>
             </div>

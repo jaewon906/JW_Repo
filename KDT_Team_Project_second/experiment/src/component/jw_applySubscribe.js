@@ -1,24 +1,23 @@
-import style from "../css/applySubscribe_jw.module.css";
 //useRef 는 직접 DOM 요소를 건들여야할 때 해당하는 요소에 ref={name}을 부여하고
 // const aa = useRef(name) 으로 하면 aa는 name에 해당하는 요소들을 가져올 수 있다.
 import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import AddCart from "./addCart_jw";
-import Slide from "./swiper_jw";
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import style from "../css/jw_applySubscribe.module.css";
+import AddCart from "./jw_addCart";
+import Slide from "./jw_swiper";
 import {
   contentGetRdc,
-  compareIDRdc,
   getKeyConvertJSRdc,
   totalPriceRdc,
   discountRdc,
-} from "../data/data";
-import useAxios from "../additional_features/useAxios_jw";
-import contentsSelect from "../additional_features/contentsSelect_jw";
-import sessionStorage from "../additional_features/sessionStorage_jw";
-import CanvasImage from "../additional_features/canvasRGB_jw";
-import comma from "../additional_features/amount_notation";
-import { Swiper, SwiperSlide } from "swiper/react";
+} from "../data/jw_data";
+import useAxios from "../additional_features/jw_useAxios";
+import contentsSelect from "../additional_features/jw_contentsSelect";
+import sessionStorage from "../additional_features/jw_sessionStorage";
+import CanvasImage from "../additional_features/jw_canvasRGB";
+import comma from "../additional_features/jw_amount_notation";
 
 let [a, c, t, d] = [[], [], 0, 0];
 
@@ -35,9 +34,6 @@ function ApplySubscribe_jw() {
     discount = data.discount,
     cc = data.onOffArr,
     dispatch = useDispatch();
-
-  let { categoryNum } = useParams();
-  console.log(categoryNum);
 
   const canvasRef = useRef(null);
 
@@ -85,16 +81,20 @@ function ApplySubscribe_jw() {
 
     setMenuOnOff(m);
   }
-
+  // 컨텐츠를 누르면 해당하는 페이지로 이동
+  function moveToDiscription(e){
+    
+  
+  }
   // +담기 버튼을 클릭 시 함수
   function addBtnOnClick(e) {
+    e.preventDefault()
     const resultData = contentsData.find((x) => x.id === e.target.id);
     [a, c, t, d] = contentsSelect(filteredData, resultData, e);
 
     setOnOff(c);
 
     dispatch(getKeyConvertJSRdc(sessionStorage(a)));
-    dispatch(compareIDRdc(e.target.id));
     dispatch(totalPriceRdc(t));
     dispatch(discountRdc(d));
     // dispatch(onOffRdc(onOff))
@@ -146,7 +146,7 @@ function ApplySubscribe_jw() {
                 <SwiperSlide className={style.swiperSlide}>
                   {categories.map((value, index) => {
                     return (
-                      <div
+                      <div key={value.category}
                         className={menuOnOff[index] ? style.menu1 : style.menu}
                       >
                         <Link
@@ -163,7 +163,7 @@ function ApplySubscribe_jw() {
                 <SwiperSlide className={style.swiperSlide}>
                   {categories.map((value, index) => {
                     return (
-                      <div
+                      <div key={value.category}
                         className={menuOnOff[index] ? style.menu1 : style.menu}
                       >
                         <Link
@@ -200,13 +200,13 @@ function ApplySubscribe_jw() {
                     <div className={style.contentIcon}>
                       <img src={value.url} alt="" />
                     </div>
-                    <div
+                    <Link onClick={moveToDiscription} to={`category=/${value.id}`}><div id={value.id}
                       className={
                         onOff[index] ? style.contentArea1 : style.contentArea
                       }
                     >
-                      <div className={style.content}>
-                        <div
+                     <div className={style.content}>
+                        <div id={value.id}
                           className={
                             onOff[index]
                               ? style.contentTitle1
@@ -215,7 +215,7 @@ function ApplySubscribe_jw() {
                         >
                           {value.title} &gt;
                         </div>
-                        <div
+                        <div id={value.id}
                           className={
                             onOff[index]
                               ? style.contentText1
@@ -232,7 +232,7 @@ function ApplySubscribe_jw() {
                           {onOff[index] ? "- 빼기 " : "+ 담기"}
                         </button>
                       </div>
-                    </div>
+                    </div></Link>
                     <div className={style.priceTextArea}>
                       <div>
                         <div>
@@ -274,7 +274,7 @@ function ApplySubscribe_jw() {
                     오늘은 어떤 상품을
                     <br /> 구독할까요?
                   </div>
-                  <div className={style.toLogin}>로그인 하러 가기 - &gt;</div>
+                  <div className={style.toLogin}>로그인 하러 가기  <i style={{marginLeft:'5px'}} className="fa-solid fa-arrow-right"></i></div>
                   <div className={style.subscribing}>현재 구독중인 상품</div>
                   <div className={style.ckeckYourContent}>
                     <div className={style.cautionBtn}>i</div> <pre> </pre>

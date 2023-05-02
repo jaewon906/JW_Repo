@@ -1,9 +1,10 @@
 .container {
     width:100vw;
+    height:auto;
     display: flex;
     flex-direction:column;
     align-items:center;
-    background-color:rgb(245, 243, 243);
+    background-color:rgb(250, 250, 250);
 }
 @media(width<=1440px){
     .container{
