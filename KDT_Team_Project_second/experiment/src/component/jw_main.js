@@ -60,24 +60,24 @@ export default function Main() {
         </div>
       </div>
       <div className={style.box}>
+        <div style={{marginTop:'500px'}}>
         <div className={style.imgBoxss}>
           <div style={{ paddingLeft: "30px" }} className={style.imgBoxs}>
             {img3.map((v, i) => {
               return (
                 <div key={i} className={style.img}>
-                  <img src={v} />
+                  <img src={v} alt=""/>
                 </div>
               );
             })}
           </div>
           <div style={{display:'flex',justifyContents:'center',width:'300px', height:'10%'}}>
-            <img src={"https://image.lguplus.com/static/pc-static/hago/images/common/subs-lg-welaaa.png"} alt=''></img>
           </div>
           <div style={{ paddingRight: "30px" }} className={style.imgBoxs}>
             {img4.map((v, i) => {
               return (
                 <div key={i} className={style.img}>
-                  <img src={v} />
+                  <img src={v} alt=""/>
                 </div>
               );
             })}
@@ -87,7 +87,7 @@ export default function Main() {
           {img1.map((v, i) => {
             return (
               <div key={i} className={style.img}>
-                <img src={v} />
+                <img src={v} alt=""/>
               </div>
             );
           })}
@@ -96,10 +96,11 @@ export default function Main() {
           {img2.map((v, i) => {
             return (
               <div key={i} className={style.img}>
-                <img src={v} />
+                <img src={v} alt="" />
               </div>
             );
           })}
+        </div>
         </div>
       </div>
       <div className={`${style.box} ${style.box1}`}>
@@ -119,10 +120,10 @@ export default function Main() {
           </div>
           <div >
             <div style={{position:'relative',margin:'-20px 10px 10px 10px '}}>
-            <img className={style.pzImg1} src={'https://image.lguplus.com/static/pc-static/hago/images/common/block-subs-a.png'}></img>
-            <img className={style.pzImg2} src={'https://image.lguplus.com/static/pc-static/hago/images/common/block-subs-b.png'}></img>
-            <img className={style.pzImg3} src={'https://image.lguplus.com/static/pc-static/hago/images/common/block-subs-c.png'}></img>
-            <img className={style.pzImg4} src={'https://image.lguplus.com/static/pc-static/hago/images/common/block-subs-d.png'}></img>
+            <img className={style.pzImg1} src={'https://image.lguplus.com/static/pc-static/hago/images/common/block-subs-a.png'} alt=""></img>
+            <img className={style.pzImg2} src={'https://image.lguplus.com/static/pc-static/hago/images/common/block-subs-b.png'} alt=""></img>
+            <img className={style.pzImg3} src={'https://image.lguplus.com/static/pc-static/hago/images/common/block-subs-c.png'} alt=""></img>
+            <img className={style.pzImg4} src={'https://image.lguplus.com/static/pc-static/hago/images/common/block-subs-d.png'} alt=""></img>
             </div>
           </div>
         </div>
