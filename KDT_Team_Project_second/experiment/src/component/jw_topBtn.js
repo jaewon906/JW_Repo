@@ -7,17 +7,19 @@ function moveTop() {
 }
 
 function TopBtn() {
-    const [btnMarginTop, setBtnMarginTop] = useState(document.documentElement.scrollTop + document.documentElement.clientHeight - 150);
+    const [btnMarginTop, setBtnMarginTop] = useState(window.innerHeight-100);
     window.onscroll = () => {
-        setBtnMarginTop(document.documentElement.scrollTop + document.documentElement.clientHeight - 150)
+        setBtnMarginTop(window.innerHeight-100)
 
     }
     window.onresize = () => {
-        setBtnMarginTop(document.documentElement.scrollTop + document.documentElement.clientHeight - 150)
+        setBtnMarginTop(window.innerHeight-100)
     }
     return (
-        <div onClick={moveTop} style={{ marginTop: `${btnMarginTop}px` }} className={style.topBtn}>
+        <div className={style.absoluteBox}>
+        <div onClick={moveTop} style={{ position:'sticky', top: `${btnMarginTop}px` }} className={style.topBtn}>
             <div className={style.topBtnArrow}><i className="fa-solid fa-arrow-up"></i></div>
+        </div>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import {Link} from 'react-router-dom' 
 
 function Header_JW(){
-    let a=[false, false, false, false]
+    let a=[true, false, false, false]
     const[onOff, setOnOff] = useState(a)
 
     const onOffFunction = (e) => {

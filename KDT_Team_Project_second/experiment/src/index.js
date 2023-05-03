@@ -11,7 +11,7 @@ import Appjw from "./component/jw_App";
 import Footerjw from './component/jw_footer';
 import TopBtnjw from './component/jw_topBtn';
 import HeaderJW from './component/jw_header'
-
+import Gsap from "./additional_features/gsap";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const store = configureStore({
   reducer: rootReducer,
@@ -31,6 +31,7 @@ root.render(
   </BrowserRouter>
   </Provider>
   </div>
+  // <Gsap />
 
 );
 
