@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const style={
    
         width:'350px',
@@ -19,5 +21,5 @@ const style={
 }
 export default function MainBtn(){
 
-    return(<button style={style}>둘러보기</button>)
+    return(<Link to='main/'><button style={style}>둘러보기</button></Link>)
 }

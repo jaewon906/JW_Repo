@@ -6,234 +6,180 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
   gsap.registerPlugin(ScrollTrigger);
   // 첫 번째 메인화면 애니메이션
   for (var i = 0; i < 3; i++) {
-    gsap.from(idx2.current[i], {
-      scrollTrigger: {
-        trigger: idx2.current[i],
-      },
-      duration: 1,
-      delay: 0.5 * i,
-      opacity: 0,
-    });
-    gsap.to(idx2.current[i], {
-      scrollTrigger: {
-        trigger: idx2.current[i],
-        duration: 1,
-        delay: 1,
-      },
-      y: -50,
-      duration: 1,
-      delay: 0.5 * i,
-      opacity: 1,
-    });
+    gsap.fromTo(
+      idx2.current[i],
+      { opacity: 0 },
+      { opacity: 1, duration: 1, delay: 0.5 * i }
+    );
   }
   for (var i = 0; i < 12; i += 2) {
-    gsap.from(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      opacity: 0,
-      delay: 0.058 * i,
-    });
-    gsap.to(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      y: -50,
-      opacity: 1,
-      duration: 1,
-      delay: 0.058 * i,
-    });
+    gsap.fromTo(
+      idx1.current[i],
+      { opacity: 0, delay: 0.058 * i },
+      { opacity: 1, duration: 1, delay: 0.058 * i, y: -50 }
+    );
   }
   for (var i = 1; i < 12; i += 2) {
-    gsap.from(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      opacity: 0,
-      delay: 0.058 * i,
-    });
-    gsap.to(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      transform: "rotateY(180deg)",
-      y: -50,
-      opacity: 1,
-      duration: 1,
-      delay: 0.058 * i,
-    });
+    gsap.fromTo(
+      idx1.current[i],
+      { opacity: 0, delay: 0.058 * i },
+      {
+        opacity: 1,
+        transform: "rotateY(180deg)",
+        duration: 1,
+        delay: 0.058 * i,
+        y: -0,
+      }
+    );
   }
   for (var i = 12; i < 26; i += 2) {
-    gsap.from(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      opacity: 0,
-      duration: 1,
-      delay: 0.058 * i,
-    });
-
-    gsap.to(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      transform: "rotateY(180deg)",
-      y: -50,
-      opacity: 1,
-      duration: 1,
-      delay: 0.058 * i,
-    });
+    gsap.fromTo(
+      idx1.current[i],
+      { opacity: 0, delay: 0.058 * i },
+      { opacity: 1, duration: 1, delay: 0.058 * i, y: -50 }
+    );
   }
   for (var i = 13; i < 26; i += 2) {
-    gsap.from(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      opacity: 0,
-      duration: 1,
-      delay: 0.058 * i,
-    });
-
-    gsap.to(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      y: -50,
-      opacity: 1,
-      duration: 1,
-      delay: 0.058 * i,
-    });
+    gsap.fromTo(
+      idx1.current[i],
+      { opacity: 0, delay: 0.058 * i },
+      {
+        opacity: 1,
+        transform: "rotateY(180deg)",
+        duration: 1,
+        delay: 0.058 * i,
+        y: -0,
+      }
+    );
   }
   for (var i = 26; i < 39; i += 2) {
-    gsap.from(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      opacity: 0,
-      duration: 1,
-      delay: 0.058 * i,
-    });
-
-    gsap.to(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      transform: "rotateY(180deg)",
-      y: -50,
-      opacity: 1,
-      duration: 1,
-      delay: 0.058 * i,
-    });
+    gsap.fromTo(
+      idx1.current[i],
+      { opacity: 0, delay: 0.058 * i },
+      { opacity: 1, duration: 1, delay: 0.058 * i, y: -50 }
+    );
   }
   for (var i = 27; i < 39; i += 2) {
-    gsap.from(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      opacity: 0,
-      duration: 1,
-      delay: 0.058 * i,
-    });
-
-    gsap.to(idx1.current[i], {
-      scrollTrigger: {
-        trigger: idx1.current[i],
-      },
-      y: -50,
-      opacity: 1,
-      duration: 1,
-      delay: 0.058 * i,
-    });
+    gsap.fromTo(
+      idx1.current[i],
+      { opacity: 0, delay: 0.058 * i },
+      {
+        opacity: 1,
+        transform: "rotateY(180deg)",
+        duration: 1,
+        delay: 0.058 * i,
+        y: -0,
+      }
+    );
   }
   // 각 페이지 글자 에니메이션
-  for (var i = 0; i < idx4.current.length; i++) {
-    gsap.from(idx4.current[i], {
-      scrollTrigger: {
-        trigger: idx4.current[i],
-        markers: true,
-        start: "top 550px",
-      },
-      opacity: 0,
-    });
-    gsap.to(idx4.current[i], {
-      scrollTrigger: {
-        trigger: idx4.current[i],
-        start: "top 550px",
-      },
-      opacity: 1,
-    });
+  for (var i = 0; i < 2; i++) {
+    gsap.fromTo(
+      idx4.current[i],
+      { opacity: 0 },
+      {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: idx4.current[i],
+          start: "top 70%",
+          end: "bottom 70%",
+          scrub: 1,
+          markers: true,
+        },
+      }
+    );
   }
+  for (var i = 2; i < 4; i++) {
+    gsap.fromTo(
+      idx4.current[i],
+      { opacity: 0 },
+      {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: idx4.current[i],
+          start: "top 70%",
+          end: "bottom 70%",
+          scrub: 1,
+        },
+      }
+    );
+  }
+  for (var i = 4; i < 6; i++) {
+    gsap.fromTo(
+      idx4.current[i],
+      { opacity: 0 },
+      {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: idx4.current[i],
+          start: "top 70%",
+          end: "bottom 70%",
+          scrub: 1,
+        },
+      }
+    );
+  }
+  // 두 번째 그림 에니메이션
   for (var i = 0; i < idx3.current.length; i++) {
-    gsap.from(idx3.current[i], {
-      scrollTrigger: {
-        trigger: idx3.current[i],
-        start: "top 550px",
-        end: "bottom 550px",
-      },
-      y: 0,
-      opacity: 0,
-    });
-    gsap.to(idx3.current[i], {
-      scrollTrigger: {
-        trigger: idx3.current[i],
-        start: "top 550px",
-        end: "top 550px",
-      },
-      y: -50,
-    });
+    let a = 1;
+    if (i % 2 == 0) {
+      a = -1;
+    } else {
+      a = 1;
+    }
+    gsap.fromTo(
+      idx3.current[i],
+      { x: 10 * a, y: 10, opacity: 0 },
+      {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        delay: 0.15 * i,
+        scrollTrigger: {
+          trigger: idx3.current[0],
+          start: "top 70%",
+          end: "bottom 60%",
+          toggleActions: "restart",
+          scrub: 1,
+        },
+      }
+    );
   }
+
   // 세 번째 페이지 그림 에니메이션
   for (var i = 0; i < idx5.current.length; i++) {
-    gsap.from(idx5.current[i], {
-      scrollTrigger: {
-        trigger: idx5.current[i],
-        markers: true,
-      },
-      scale:0
-    });
+    gsap.fromTo(
+      idx5.current[i],
+      { scale: 0 },
+      {
+        scale: 1,
+        delay: 0.1 * i,
+        scrollTrigger: {
+          trigger: idx5.current[0],
+          start: "top 70%",
+          end: "bottom 60%",
+          toggleActions: "restart",
+          scrub: 1,
+        },
+      }
+    );
   }
-  const tl1 = gsap.timeline();
-  tl1
-    .to(idx5.current[1], {
-      scrollTrigger: {
-        trigger: idx5.current[i],
-        start: "top 550px",
-      },
-      scale:1,
-      duration: 0.5,
-    })
-    .to(idx5.current[2], {
-      scrollTrigger: {
-        trigger: idx5.current[i],
-        start: "top 550px",
-      },
+
+  // 네 번째 그림
+  gsap.fromTo(
+    idx6.current[0],
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
       opacity: 1,
-      duration: 0.5,
-    })
-    .to(idx5.current[3], {
       scrollTrigger: {
-        trigger: idx5.current[i],
-        start: "top 550px",
+        trigger: idx4.current[4],
+        start: "top 50%",
+        end: "bottom 50%",
+        scrub: 1,
       },
-      opacity: 1,
-      duration: 0.5,
-    })
-    .to(idx5.current[4], {
-      scrollTrigger: {
-        trigger: idx5.current[i],
-        start: "top 550px",
-      },
-      opacity: 1,
-      duration: 0.5,
-    })
-    .to(idx5.current[5], {
-      scrollTrigger: {
-        trigger: idx5.current[i],
-        start: "top 550px",
-      },
-      opacity: 1,
-      duration: 0.5,
-    });
+    }
+  );
 }
 
 export default gaspScrollTrigger;

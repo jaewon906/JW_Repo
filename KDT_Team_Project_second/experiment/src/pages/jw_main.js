@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import gaspScrollTrigger from "../additional_features/gsapScrollTrigger";
 import style from "../css/jw_main.module.css";
-
+import MainBtn from "../component/jw_mainBtn";
 export default function Main() {
   const imgUrl1 = [
     "https://image.lguplus.com/static/pc-static/hago/images/common/subs-lg-siwon.png",
@@ -62,6 +62,7 @@ export default function Main() {
 
   return (
     <div className={style.container}>
+      
       {/* 첫번째 화면 */}
       <div className={style.box}>
         <p
@@ -477,7 +478,7 @@ export default function Main() {
             >
               <img
                 ref={(el) => {
-                  imgRef4.current[1] = el;
+                  imgRef4.current[0] = el;
                 }}
                 src={process.env.PUBLIC_URL + "./mainImg/phone-body2.png"}
                 alt="phone-body2"
@@ -486,6 +487,8 @@ export default function Main() {
           </div>
         </div>
       </div>
+      <MainBtn />
     </div>
+    
   );
 }
