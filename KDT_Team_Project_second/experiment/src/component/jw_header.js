@@ -3,7 +3,7 @@ import { useState } from 'react'
 import {Link} from 'react-router-dom' 
 
 function Header_JW(){
-    let a=[true, false, false, false]
+    let a=[false, false, false, false]
     const[onOff, setOnOff] = useState(a)
 
     const onOffFunction = (e) => {
@@ -23,8 +23,8 @@ function Header_JW(){
         <div className={style.container}>
             <div className={style.header}>
                 <div className={style.menu}>
-                    <Link to='/' onClick={onOffFunction} ><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQON_GawiUP2UC1l9Ib0DKuZhZRzXk13jXadg&usqp=CAU' alt=''/></Link>
-                    <Link to='/main' className={style.linkStyle}><button id='header1' onClick={onOffFunction} className={ (onOff[0] ? `${style.selected}`:null)}>구독신청</button></Link>
+                    <a href='/' onClick={onOffFunction} ><img src={process.env.PUBLIC_URL + '../mainImg/logo.png'} alt=''/></a>
+                    <Link to='/main/' className={style.linkStyle}><button id='header1' onClick={onOffFunction} className={ (onOff[0] ? `${style.selected}`:null)}>구독신청</button></Link>
                     <Link to='/main/myInfo' className={style.linkStyle}><button id='header2' onClick={onOffFunction} className={ (onOff[1] ? `${style.selected}`:null)}>MY 구독</button></Link>
                     <Link to='/' className={style.linkStyle}><button id='header3' onClick={onOffFunction} className={ (onOff[2] ? `${style.selected}`:null)}>이벤트</button></Link>
                     <Link to='/' className={style.linkStyle}><button id='header4' onClick={onOffFunction} className={ (onOff[3] ? `${style.selected}`:null)}>고객센터</button></Link>

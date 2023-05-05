@@ -84,7 +84,6 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
           start: "top 70%",
           end: "bottom 70%",
           scrub: 1,
-          markers: true,
         },
       }
     );

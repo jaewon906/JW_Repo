@@ -1,7 +1,9 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
+import {Link} from 'react-router-dom'
 import gaspScrollTrigger from "../additional_features/gsapScrollTrigger";
 import style from "../css/jw_main.module.css";
-import MainBtn from "../component/jw_mainBtn";
+import {useDispatch, useSelector} from 'react-redux'
+import { headerRdc } from "../data/jw_data";
 export default function Main() {
   const imgUrl1 = [
     "https://image.lguplus.com/static/pc-static/hago/images/common/subs-lg-siwon.png",
@@ -50,36 +52,39 @@ export default function Main() {
     "https://image.lguplus.com/static/pc-static/hago/images/common/subs-lg-millie.png",
     "https://image.lguplus.com/static/pc-static/hago/images/common/subs-lg-welaaa.png",
   ];
-  const imgRef1 = useRef([]);
-  const imgRef2 = useRef([]);
-  const textRef1 = useRef([]);
-  const textRef2 = useRef([]);
-  const imgRef3 = useRef([]);
-  const imgRef4 = useRef([]);
+  const imgRef1 = useRef([]),
+        imgRef2 = useRef([]),
+        textRef1 = useRef([]),
+        textRef2 = useRef([]),
+        imgRef3 = useRef([]),
+        imgRef4 = useRef([]);
+
   useLayoutEffect(() => {
     gaspScrollTrigger(imgRef1, textRef1, imgRef2, textRef2, imgRef3, imgRef4);
   }, []);
 
+
   return (
     <div className={style.container}>
-      
+      <Link to='main/'><button  className={style.entranceBtn}>둘러보기</button></Link>
+
       {/* 첫번째 화면 */}
       <div className={style.box}>
-        <p
+        <p className={style.mainTxt1}
           ref={(el) => {
             textRef1.current[0] = el;
           }}
         >
           구 독
         </p>
-        <p
+        <p className={style.mainTxt2}
           ref={(el) => {
             textRef1.current[1] = el;
           }}
         >
           평범한 일상의 순간도 더 특별하게
         </p>
-        <p
+        <p className={style.mainTxt3}
           ref={(el) => {
             textRef1.current[2] = el;
           }}
@@ -187,7 +192,7 @@ export default function Main() {
                 marginTop: "200px",
               }}
             >
-              <div
+              <div className={style.text11}
                 ref={(el) => {
                   textRef2.current[0] = el;
                 }}
@@ -211,10 +216,9 @@ export default function Main() {
                 color: "rgb(71, 71, 71)",
                 width: "170px",
                 fontSize: "20px",
-                marginTop: "50px",
               }}
             >
-              <p
+              <p className={style.text2}
                 ref={(el) => {
                   textRef2.current[1] = el;
                 }}
@@ -360,7 +364,7 @@ export default function Main() {
           </div>
           <div>
             <div>
-              <div
+              <div  className={style.text1}
                 ref={(el) => {
                   textRef2.current[2] = el;
                 }}
@@ -388,9 +392,7 @@ export default function Main() {
                 </p>
               </div>
               <div
-                style={{
-                  marginTop: "50px",
-                }}
+                className={style.text2}
                 ref={(el) => {
                   textRef2.current[3] = el;
                 }}
@@ -402,12 +404,7 @@ export default function Main() {
                 >
                   내 일상에 필요한 구독 상품을
                 </p>
-                <p
-                  style={{
-                    fontSize: "20px",
-                    fontWeight: "100",
-                  }}
-                >
+                <p>
                   고르기만 하세요
                 </p>
               </div>
@@ -421,12 +418,10 @@ export default function Main() {
           <div>
             <div
               style={{
-                fontWeight: "bold",
-                fontSize: "40px",
                 marginTop: "200px",
               }}
             >
-              <div
+              <div className={style.text11}
                 ref={(el) => {
                   textRef2.current[4] = el;
                 }}
@@ -447,26 +442,17 @@ export default function Main() {
               style={{
                 marginLeft: "120px",
                 lineHeight: "30px",
-                color: "rgb(71, 71, 71)",
                 width: "310px",
                 fontSize: "20px",
-                marginTop: "50px",
               }}
             >
-              <div
+              <div className={style.text2}
                 ref={(el) => {
                   textRef2.current[5] = el;
                 }}
               >
                 <p>MY 구독에서 내 구독 정보 한 눈에 보세요</p>
-                <p
-                  style={{
-                    fontSize: "20px",
-                    fontWeight: "100",
-                  }}
-                >
-                  해지하기도 쉬워요
-                </p>
+                <p>해지하기도 쉬워요</p>
               </div>
             </div>
           </div>
@@ -487,8 +473,7 @@ export default function Main() {
           </div>
         </div>
       </div>
-      <MainBtn />
     </div>
-    
+
   );
 }

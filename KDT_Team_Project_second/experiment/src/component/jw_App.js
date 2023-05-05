@@ -2,14 +2,12 @@ import ApplySubscribeJW from "../pages/jw_applySubscribe";
 import Main from "../pages/jw_main";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Asdfsadf from "./asdfasdf";
-import MainBtn from "./jw_mainBtn";
 
 function App_jw() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/" element={<MainBtn />} />
         <Route path="/" element={<Outlet />}>
           <Route path="main/" element={<ApplySubscribeJW />} />
           <Route path="main/" element={<Outlet />}>
