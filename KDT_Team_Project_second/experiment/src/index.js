@@ -3,7 +3,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import { composeWithDevTools } from "redux-devtools-extension";
 import style from './css/jw_app.module.css';
 import ScrollTop from './additional_features/jw_scrollTop';
 import rootReducer from "./data/jw_combineReducers";
@@ -14,7 +13,6 @@ import HeaderJW from './component/jw_header'
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const store = configureStore({
   reducer: rootReducer,
-  composeWithDevTools,
 });
 
 root.render(

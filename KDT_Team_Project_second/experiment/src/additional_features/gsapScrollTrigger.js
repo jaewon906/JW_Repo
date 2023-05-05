@@ -28,7 +28,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         transform: "rotateY(180deg)",
         duration: 1,
         delay: 0.058 * i,
-        y: -0,
+        y: -50,
       }
     );
   }
@@ -48,7 +48,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         transform: "rotateY(180deg)",
         duration: 1,
         delay: 0.058 * i,
-        y: -0,
+        y: -50,
       }
     );
   }
@@ -68,7 +68,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         transform: "rotateY(180deg)",
         duration: 1,
         delay: 0.058 * i,
-        y: -0,
+        y: -50,
       }
     );
   }
@@ -82,8 +82,8 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         scrollTrigger: {
           trigger: idx4.current[i],
           start: "top 70%",
-          end: "bottom 70%",
-          scrub: 1,
+          end: "+=100 75%",
+          toggleActions: "restart resume reverse resume",
         },
       }
     );
@@ -97,8 +97,8 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         scrollTrigger: {
           trigger: idx4.current[i],
           start: "top 70%",
-          end: "bottom 70%",
-          scrub: 1,
+          end: "+=100 75%",
+          toggleActions: "restart resume reverse resume",
         },
       }
     );
@@ -112,8 +112,8 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         scrollTrigger: {
           trigger: idx4.current[i],
           start: "top 70%",
-          end: "bottom 70%",
-          scrub: 1,
+          end: "+=100 75%",
+          toggleActions: "restart resume reverse resume",
         },
       }
     );
@@ -135,11 +135,10 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         opacity: 1,
         delay: 0.15 * i,
         scrollTrigger: {
-          trigger: idx3.current[0],
+          trigger: idx4.current[0],
           start: "top 70%",
-          end: "bottom 60%",
-          toggleActions: "restart",
-          scrub: 1,
+          end: "+=100 70%",
+          toggleActions: "restart resume reverse resume",
         },
       }
     );
@@ -156,9 +155,9 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         scrollTrigger: {
           trigger: idx5.current[0],
           start: "top 70%",
-          end: "bottom 60%",
-          toggleActions: "restart",
-          scrub: 1,
+          end: "+=200 70%",
+          toggleActions: "restart resume reverse resume",
+
         },
       }
     );
@@ -173,9 +172,9 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
       opacity: 1,
       scrollTrigger: {
         trigger: idx4.current[4],
-        start: "top 50%",
-        end: "bottom 50%",
-        scrub: 1,
+        start: "top 70%",
+        end: "+=100 70%",
+        toggleActions: "restart resume reverse resume",
       },
     }
   );
