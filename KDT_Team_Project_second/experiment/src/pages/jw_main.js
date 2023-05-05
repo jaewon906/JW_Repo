@@ -1,9 +1,7 @@
-import { useState, useLayoutEffect, useRef } from "react";
-import {Link} from 'react-router-dom'
+import { useLayoutEffect, useRef } from "react";
+import { Link } from 'react-router-dom'
 import gaspScrollTrigger from "../additional_features/gsapScrollTrigger";
 import style from "../css/jw_main.module.css";
-import {useDispatch, useSelector} from 'react-redux'
-import { headerRdc } from "../data/jw_data";
 export default function Main() {
   const imgUrl1 = [
     "https://image.lguplus.com/static/pc-static/hago/images/common/subs-lg-siwon.png",
@@ -53,20 +51,21 @@ export default function Main() {
     "https://image.lguplus.com/static/pc-static/hago/images/common/subs-lg-welaaa.png",
   ];
   const imgRef1 = useRef([]),
-        imgRef2 = useRef([]),
-        textRef1 = useRef([]),
-        textRef2 = useRef([]),
-        imgRef3 = useRef([]),
-        imgRef4 = useRef([]);
+    imgRef2 = useRef([]),
+    textRef1 = useRef([]),
+    textRef2 = useRef([]),
+    imgRef3 = useRef([]),
+    imgRef4 = useRef([]),
+    imgRef5 = useRef();
 
   useLayoutEffect(() => {
-    gaspScrollTrigger(imgRef1, textRef1, imgRef2, textRef2, imgRef3, imgRef4);
+    gaspScrollTrigger(imgRef1, textRef1, imgRef2, textRef2, imgRef3, imgRef4,imgRef5);
   }, []);
 
 
   return (
     <div className={style.container}>
-      <Link to='main/'><button  className={style.entranceBtn}>둘러보기</button></Link>
+      <Link to='main/'><button className={style.entranceBtn}>둘러보기</button></Link>
 
       {/* 첫번째 화면 */}
       <div className={style.box}>
@@ -94,7 +93,7 @@ export default function Main() {
 
         <div
           style={{
-            marginTop: "250px",
+            marginTop: "250px",width:'100%', overflow:'hidden'
           }}
         >
           <div className={style.imgBoxss}>
@@ -113,19 +112,14 @@ export default function Main() {
                     key={i}
                     className={style.img}
                   >
-                    <img src={v} alt="" />
+                    <img className={style.imgs} src={v} alt="" />
                   </div>
                 );
               })}
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContents: "center",
-                width: "300px",
-                height: "10%",
-              }}
-            ></div>
+            <div ref={imgRef5}  className={style.lineOneCenterImg}>
+              <img src={process.env.PUBLIC_URL + '../mainImg/subs-lg-vcoloring.png'} alt=''/>
+            </div>
             <div
               style={{
                 paddingRight: "30px",
@@ -141,7 +135,7 @@ export default function Main() {
                     key={i}
                     className={style.img}
                   >
-                    <img src={v} alt="" />
+                    <img className={style.imgs} src={v} alt="" />
                   </div>
                 );
               })}
@@ -157,7 +151,7 @@ export default function Main() {
                   key={i}
                   className={style.img}
                 >
-                  <img src={v} alt="" />
+                  <img className={style.imgs} src={v} alt="" />
                 </div>
               );
             })}
@@ -174,7 +168,7 @@ export default function Main() {
                   key={i}
                   className={style.img}
                 >
-                  <img src={v} alt="" />
+                  <img className={style.imgs} src={v} alt="" />
                 </div>
               );
             })}
@@ -282,8 +276,7 @@ export default function Main() {
       {/* 세번째 화면 */}
       <div
         style={{
-          height: "1800px",
-          justifyContent: "center",
+          height: "2500px"
         }}
         className={style.box}
       >
@@ -364,7 +357,7 @@ export default function Main() {
           </div>
           <div>
             <div>
-              <div  className={style.text1}
+              <div className={style.text1}
                 ref={(el) => {
                   textRef2.current[2] = el;
                 }}

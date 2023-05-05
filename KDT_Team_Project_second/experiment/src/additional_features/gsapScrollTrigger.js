@@ -2,8 +2,16 @@ import gsap from "gsap";
 import { Timeline } from "gsap/gsap-core";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
+function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
   gsap.registerPlugin(ScrollTrigger);
+
+  // 첫 번째 메인화면 첫번째 줄 가운데 이미지
+  gsap.fromTo(idx7.current,
+    {opacity : 0},
+    {opacity : 1, duration:1, delay:1.5, repeat:-1, transform: "rotateY(180deg)"}
+  )
+ 
+
   // 첫 번째 메인화면 애니메이션
   for (var i = 0; i < 3; i++) {
     gsap.fromTo(
@@ -12,66 +20,75 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
       { opacity: 1, duration: 1, delay: 0.5 * i }
     );
   }
-  for (var i = 0; i < 12; i += 2) {
+  for(var i=0; i<39; i++){
+  var  a =  Math.random()*1.8
+   console.log(a)
     gsap.fromTo(
-      idx1.current[i],
-      { opacity: 0, delay: 0.058 * i },
-      { opacity: 1, duration: 1, delay: 0.058 * i, y: -50 }
-    );
+          idx1.current[i],
+          { opacity: 0 },
+          { opacity: 1, duration: 1, delay: a, y: -50 }
+        );
   }
-  for (var i = 1; i < 12; i += 2) {
-    gsap.fromTo(
-      idx1.current[i],
-      { opacity: 0, delay: 0.058 * i },
-      {
-        opacity: 1,
-        transform: "rotateY(180deg)",
-        duration: 1,
-        delay: 0.058 * i,
-        y: -50,
-      }
-    );
-  }
-  for (var i = 12; i < 26; i += 2) {
-    gsap.fromTo(
-      idx1.current[i],
-      { opacity: 0, delay: 0.058 * i },
-      { opacity: 1, duration: 1, delay: 0.058 * i, y: -50 }
-    );
-  }
-  for (var i = 13; i < 26; i += 2) {
-    gsap.fromTo(
-      idx1.current[i],
-      { opacity: 0, delay: 0.058 * i },
-      {
-        opacity: 1,
-        transform: "rotateY(180deg)",
-        duration: 1,
-        delay: 0.058 * i,
-        y: -50,
-      }
-    );
-  }
-  for (var i = 26; i < 39; i += 2) {
-    gsap.fromTo(
-      idx1.current[i],
-      { opacity: 0, delay: 0.058 * i },
-      { opacity: 1, duration: 1, delay: 0.058 * i, y: -50 }
-    );
-  }
-  for (var i = 27; i < 39; i += 2) {
-    gsap.fromTo(
-      idx1.current[i],
-      { opacity: 0, delay: 0.058 * i },
-      {
-        opacity: 1,
-        transform: "rotateY(180deg)",
-        duration: 1,
-        delay: 0.058 * i,
-        y: -50,
-      }
-    );
-  }
+  // for (var i = 0; i < 12; i += 2) {
+  //   gsap.fromTo(
+  //     idx1.current[i],
+  //     { opacity: 0, delay: 0.058 * i },
+  //     { opacity: 1, duration: 1, delay: 0.058 * i, y: -50 }
+  //   );
+  // }
+  // for (var i = 1; i < 12; i += 2) {
+  //   gsap.fromTo(
+  //     idx1.current[i],
+  //     { opacity: 0, delay: 0.058 * i },
+  //     {
+  //       opacity: 1,
+  //       transform: "rotateY(180deg)",
+  //       duration: 1,
+  //       delay: 0.058 * i,
+  //       y: -50,
+  //     }
+  //   );
+  // }
+  // for (var i = 12; i < 26; i += 2) {
+  //   gsap.fromTo(
+  //     idx1.current[i],
+  //     { opacity: 0, delay: 0.058 * i },
+  //     { opacity: 1, duration: 1, delay: 0.058 * i, y: -50 }
+  //   );
+  // }
+  // for (var i = 13; i < 26; i += 2) {
+  //   gsap.fromTo(
+  //     idx1.current[i],
+  //     { opacity: 0, delay: 0.058 * i },
+  //     {
+  //       opacity: 1,
+  //       transform: "rotateY(180deg)",
+  //       duration: 1,
+  //       delay: 0.058 * i,
+  //       y: -50,
+  //     }
+  //   );
+  // }
+  // for (var i = 26; i < 39; i += 2) {
+  //   gsap.fromTo(
+  //     idx1.current[i],
+  //     { opacity: 0, delay: 0.058 * i },
+  //     { opacity: 1, duration: 1, delay: 0.058 * i, y: -50 }
+  //   );
+  // }
+  // for (var i = 27; i < 39; i += 2) {
+  //   gsap.fromTo(
+  //     idx1.current[i],
+  //     { opacity: 0, delay: 0.058 * i },
+  //     {
+  //       opacity: 1,
+  //       transform: "rotateY(180deg)",
+  //       duration: 1,
+  //       delay: 0.058 * i,
+  //       y: -50,
+  //     }
+  //   );
+  // }
   // 각 페이지 글자 에니메이션
   for (var i = 0; i < 2; i++) {
     gsap.fromTo(
@@ -82,7 +99,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         scrollTrigger: {
           trigger: idx4.current[i],
           start: "top 70%",
-          end: "+=100 75%",
+          end: "+=10 70%",
           toggleActions: "restart resume reverse resume",
         },
       }
@@ -97,7 +114,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         scrollTrigger: {
           trigger: idx4.current[i],
           start: "top 70%",
-          end: "+=100 75%",
+          end: "+=10 75%",
           toggleActions: "restart resume reverse resume",
         },
       }
@@ -112,7 +129,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         scrollTrigger: {
           trigger: idx4.current[i],
           start: "top 70%",
-          end: "+=100 75%",
+          end: "+=10 75%",
           toggleActions: "restart resume reverse resume",
         },
       }
@@ -137,7 +154,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         scrollTrigger: {
           trigger: idx4.current[0],
           start: "top 70%",
-          end: "+=100 70%",
+          end: "+=10 70%",
           toggleActions: "restart resume reverse resume",
         },
       }
@@ -153,9 +170,10 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
         scale: 1,
         delay: 0.1 * i,
         scrollTrigger: {
-          trigger: idx5.current[0],
-          start: "top 70%",
-          end: "+=200 70%",
+          trigger: idx5.current[3],
+          start: "top+1000 70%",
+          end: "+=10 70%",
+          markers:true,
           toggleActions: "restart resume reverse resume",
 
         },
@@ -173,7 +191,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6) {
       scrollTrigger: {
         trigger: idx4.current[4],
         start: "top 70%",
-        end: "+=100 70%",
+        end: "+=10 70%",
         toggleActions: "restart resume reverse resume",
       },
     }
