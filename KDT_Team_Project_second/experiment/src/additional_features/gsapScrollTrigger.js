@@ -1,15 +1,20 @@
 import gsap from "gsap";
-import { Timeline } from "gsap/gsap-core";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
   gsap.registerPlugin(ScrollTrigger);
 
   // 첫 번째 메인화면 첫번째 줄 가운데 이미지
-  gsap.fromTo(idx7.current,
-    {opacity : 0},
-    {opacity : 1, duration:1, delay:1.5, repeat:-1, transform: "rotateY(180deg)"}
-  )
+
+  gsap.from(idx7.current,{
+    opacity:0, delay:1.5
+  })
+  const tl1 = gsap.timeline();
+  tl1.to(idx7.current,{
+    opacity:1, duration:1, delay:1.5
+  }).to(idx7.current,{
+    repeat:-1, delay:0.6, rotationZ:'3600deg',ease:'linear',transformOrigin:'center 26.9%'
+  })
  
 
   // 첫 번째 메인화면 애니메이션
@@ -21,7 +26,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
     );
   }
   for(var i=0; i<39; i++){
-  var  a =  Math.random()*1.8
+  var  a =  Math.random()*1.5
    console.log(a)
     gsap.fromTo(
           idx1.current[i],
@@ -98,9 +103,9 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
         opacity: 1,
         scrollTrigger: {
           trigger: idx4.current[i],
-          start: "top 70%",
-          end: "+=10 70%",
-          toggleActions: "restart resume reverse resume",
+          start: "-100 70%",
+          end: "+=700 70%",
+          toggleActions: "restart reverse restart reverse",
         },
       }
     );
@@ -113,9 +118,9 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
         opacity: 1,
         scrollTrigger: {
           trigger: idx4.current[i],
-          start: "top 70%",
-          end: "+=10 75%",
-          toggleActions: "restart resume reverse resume",
+          start: "-100 70%",
+          end: "+=1200 70%",
+          toggleActions: "restart reverse restart reverse",
         },
       }
     );
@@ -128,9 +133,9 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
         opacity: 1,
         scrollTrigger: {
           trigger: idx4.current[i],
-          start: "top 70%",
-          end: "+=10 75%",
-          toggleActions: "restart resume reverse resume",
+          start: "-100 70%",
+          end: "+=800 70%",
+          toggleActions: "restart reverse restart reverse",
         },
       }
     );
@@ -138,7 +143,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
   // 두 번째 그림 에니메이션
   for (var i = 0; i < idx3.current.length; i++) {
     let a = 1;
-    if (i % 2 == 0) {
+    if (i % 2 === 0) {
       a = -1;
     } else {
       a = 1;
@@ -153,9 +158,9 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
         delay: 0.15 * i,
         scrollTrigger: {
           trigger: idx4.current[0],
-          start: "top 70%",
-          end: "+=10 70%",
-          toggleActions: "restart resume reverse resume",
+          start: "top 50%",
+          end: "+=1000 70%",
+          toggleActions: "restart reverse restart reverse",
         },
       }
     );
@@ -170,11 +175,10 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
         scale: 1,
         delay: 0.1 * i,
         scrollTrigger: {
-          trigger: idx5.current[3],
-          start: "top+1000 70%",
-          end: "+=10 70%",
-          markers:true,
-          toggleActions: "restart resume reverse resume",
+          trigger: idx5.current[0],
+          start: "500 70%",
+          end: "1500 70%",
+          toggleActions: "restart reverse restart reverse",
 
         },
       }
@@ -191,7 +195,7 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
       scrollTrigger: {
         trigger: idx4.current[4],
         start: "top 70%",
-        end: "+=10 70%",
+        end: "+=50 70%",
         toggleActions: "restart resume reverse resume",
       },
     }

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useEffect, useRef, useState } from "react";
 import { Link } from 'react-router-dom'
 import gaspScrollTrigger from "../additional_features/gsapScrollTrigger";
 import style from "../css/jw_main.module.css";
@@ -50,18 +50,27 @@ export default function Main() {
     "https://image.lguplus.com/static/pc-static/hago/images/common/subs-lg-millie.png",
     "https://image.lguplus.com/static/pc-static/hago/images/common/subs-lg-welaaa.png",
   ];
+  
   const imgRef1 = useRef([]),
     imgRef2 = useRef([]),
     textRef1 = useRef([]),
     textRef2 = useRef([]),
     imgRef3 = useRef([]),
     imgRef4 = useRef([]),
-    imgRef5 = useRef();
+    imgRef5 = useRef(),
+    [a,setA] = useState("");
 
   useLayoutEffect(() => {
     gaspScrollTrigger(imgRef1, textRef1, imgRef2, textRef2, imgRef3, imgRef4,imgRef5);
   }, []);
 
+  function randomImg(){
+
+    const aa = imgUrl1[Math.floor(Math.random()*10)]
+       setA(aa)
+
+}
+   setTimeout(randomImg,1500)
 
   return (
     <div className={style.container}>
@@ -93,7 +102,7 @@ export default function Main() {
 
         <div
           style={{
-            marginTop: "250px",width:'100%', overflow:'hidden'
+            paddingTop: "250px",width:'100%', overflow:'hidden'
           }}
         >
           <div className={style.imgBoxss}>
@@ -118,7 +127,7 @@ export default function Main() {
               })}
             </div>
             <div ref={imgRef5}  className={style.lineOneCenterImg}>
-              <img src={process.env.PUBLIC_URL + '../mainImg/subs-lg-vcoloring.png'} alt=''/>
+              <img src={a} alt=''/>
             </div>
             <div
               style={{
@@ -156,6 +165,7 @@ export default function Main() {
               );
             })}
           </div>
+          
           <div className={`${style.imgBoxl} ${style.after}`}>
             {imgUrl2.map((v, i) => {
               return (
@@ -449,12 +459,7 @@ export default function Main() {
               </div>
             </div>
           </div>
-          <div>
-            <div
-              style={{
-                margin: "-20px 10px 10px 10px ",
-              }}
-            >
+          <div>     
               <img
                 ref={(el) => {
                   imgRef4.current[0] = el;
@@ -462,7 +467,6 @@ export default function Main() {
                 src={process.env.PUBLIC_URL + "./mainImg/phone-body2.png"}
                 alt="phone-body2"
               ></img>
-            </div>
           </div>
         </div>
       </div>

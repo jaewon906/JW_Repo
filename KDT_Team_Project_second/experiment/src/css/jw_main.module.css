@@ -67,7 +67,7 @@
 .contentBox2 {
   display: flex;
   justify-content: center;
-  width: 1280px;
+  width: 1080px;
   height: 70%;
 }
 .contentBox2 > div:nth-child(1) {
@@ -134,13 +134,13 @@
 }
 .pzImg3 {
   position: absolute;
-  left: -180px;
+  left: -130px;
   top: 300px;
 }
 .pzImg4 {
   position: absolute;
   top: 350px;
-  left: 150px;
+  left: 200px;
 }
 
 .entranceBtn {
