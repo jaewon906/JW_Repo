@@ -11,15 +11,23 @@ function CanvasImage(props) {
 
     ctx.drawImage(image, 0, 0, 200, 200);
 
-    const x = 59;
-    const y = 90;
+    const x = 67; // 59
+    const y = 80; //90
 
     const imageData = ctx.getImageData(x, y, 1, 1);
     const pixel = imageData.data;
+    if(pixel[0] >=250 && pixel[1] >=250 && pixel[2] >=250){
+      setR(250)
+      setG(0)
+      setB(0)
+    }
+    else{
 
-    setR(pixel[0]);
-    setG(pixel[1]);
-    setB(pixel[2]);
+      setR(pixel[0]);
+      setG(pixel[1]);
+      setB(pixel[2]);
+    }
+
   }
   const image = new Image();
   // The canvas has been tainted by cross-origin data 에러 방지
@@ -32,7 +40,7 @@ function CanvasImage(props) {
       <div
         style={{
           backgroundColor: `rgb(${r},${g},${b})`,
-          width: "250px",
+          width: "240px",
           height: "210px",
           position: "absolute",
           borderRadius: "10px",

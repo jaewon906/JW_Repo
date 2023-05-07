@@ -6,7 +6,6 @@ import {
   addCartbtn1Rdc,
   getKeyConvertJSRdc,
   totalPriceRdc,
-  onOffRdc,
   discountRdc,
 } from "../data/jw_data";
 import contentsSelect from "../additional_features/jw_contentsSelect";
@@ -17,7 +16,6 @@ let [a, c, t, d] = [[], [], 0, 0];
 
 function Addcart(props) {
   const data = useSelector((store) => store.dataSet),
-    [onOff, setOnOff] = useState([]),
     btnCount = data.btnCount,
     contentsData = data.contentsData,
     dispatch = useDispatch(),
@@ -37,8 +35,6 @@ function Addcart(props) {
   function deleteFn(e) {
     const resultData = contentsData.find((x) => x.id === e.target.id);
     [a, c, t, d] = contentsSelect(contentsData, resultData, e);
-
-    setOnOff(c);
 
     dispatch(getKeyConvertJSRdc(sessionStorage(a)));
     dispatch(totalPriceRdc(t));
@@ -111,7 +107,6 @@ function Addcart(props) {
             <div>예상 구독료</div>
             <div>
               <div>
-                {console.log(expectedPrice)}
                 {expectedPrice === NaN ? "" : expectedPrice + "%" }
               </div>
               <div>월 {comma(props.totalPrice - props.discount)}원</div>

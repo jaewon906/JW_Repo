@@ -18,9 +18,8 @@ import contentsSelect from "../additional_features/jw_contentsSelect";
 import sessionStorage from "../additional_features/jw_sessionStorage";
 import CanvasImage from "../additional_features/jw_canvasRGB";
 import comma from "../additional_features/jw_amount_notation";
-import TopBtn from "../component/jw_topBtn";
 
-let [a, c, t, d] = [[], [], 0, 0];
+let [a, c, k, t, d] = [[], [], [], 0, 0];
 
 function ApplySubscribe_jw() {
   const contentsData = useAxios("http://localhost:4000/data"),
@@ -33,6 +32,7 @@ function ApplySubscribe_jw() {
     totalPrice = data.totalPrice,
     discount = data.discount,
     dispatch = useDispatch();
+    
 
   const canvasRef = useRef(null);
 
@@ -42,7 +42,7 @@ function ApplySubscribe_jw() {
     { link: "/main", category: "자기개발" },
     { link: "/main", category: "도서/아티클" },
     { link: "/main", category: "자기관리" },
-    { link: "/main", category: "유쓰" },
+    { link: "/main", category: "식품" },
     { link: "/main", category: "단기렌탈" },
     { link: "/main", category: "반려동물" },
     { link: "/main", category: "여행" },
@@ -71,16 +71,37 @@ function ApplySubscribe_jw() {
       }
       i++;
     });
-
+    // 카테고리 'all'을 눌렀을 때 전체 data출력 아닐땐 category에 해당하는
+    // 데이터만 출력
     if (e.target.id !== "all") {
+      // k=[]
       f = contentsData.filter((x) => x.category === e.target.id);
+
+      // for (var j=0; j<f.length; j++){
+
+      //   k=[...k,onOff[(f[j].id.slice(2,3)-1)]]
+      //     console.log(k)
+        
+      // }
+      setOnOff(k)
       setFilteredData(f);
-    } else {
-      f = contentsData;
+    } 
+    else {
+      // k=[]
+      // f = contentsData;
+      // for (var j=0; j<f.length; j++){
+
+      //   k=[...k,onOff[(f[j].id.slice(2,3)-1)]]
+      //     console.log(k)
+        
+      // }
+      // setOnOff(k)
       setFilteredData(f);
     }
 
     setMenuOnOff(m);
+
+
   }
   // 컨텐츠를 누르면 해당하는 페이지로 이동
   function moveToDiscription(e) {}
@@ -88,14 +109,13 @@ function ApplySubscribe_jw() {
   function addBtnOnClick(e) {
     e.preventDefault();
     const resultData = contentsData.find((x) => x.id === e.target.id);
-    [a, c, t, d] = contentsSelect(filteredData, resultData, e);
+    [a, c, t, d] = contentsSelect(contentsData, resultData, e);
 
     setOnOff(c);
 
     dispatch(getKeyConvertJSRdc(sessionStorage(a)));
     dispatch(totalPriceRdc(t));
     dispatch(discountRdc(d));
-    // dispatch(onOffRdc(onOff))
 
     if (onOff) {
       setIsTrue(onOff.includes(true));

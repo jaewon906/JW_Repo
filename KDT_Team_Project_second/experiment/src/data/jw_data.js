@@ -29,14 +29,9 @@ const dataSet = createSlice({
     },
     getKeyConvertJSRdc: (state, action) => {
       state.getKeyConvertJS = action.payload;
-      console.log(state.getKeyConvertJS)
     },
     totalPriceRdc: (state, action) => {
       state.totalPrice = action.payload;
-    },
-    onOffRdc: (state, action) => {
-      state.onOffArr = action.payload;
-      console.log(state.onOffArr)
     },
     discountRdc: (state, action) => {
       state.discount = action.payload;
@@ -50,7 +45,6 @@ export const {
   contentGetRdc,
   getKeyConvertJSRdc,
   totalPriceRdc,
-  onOffRdc,
   discountRdc,
 } = dataSet.actions;
 export default dataSet.reducer;
