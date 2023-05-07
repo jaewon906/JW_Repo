@@ -74,28 +74,27 @@ function ApplySubscribe_jw() {
     // 카테고리 'all'을 눌렀을 때 전체 data출력 아닐땐 category에 해당하는
     // 데이터만 출력
     if (e.target.id !== "all") {
-      // k=[]
       f = contentsData.filter((x) => x.category === e.target.id);
+      for (var j=0; j<f.length; j++){
 
-      // for (var j=0; j<f.length; j++){
-
-      //   k=[...k,onOff[(f[j].id.slice(2,3)-1)]]
-      //     console.log(k)
+        k[j]=onOff[(f[j].id.slice(2,3)-1)]
+          console.log(f[j].id.slice(2,3)-1)
+          console.log(k)
         
-      // }
+      }
       setOnOff(k)
       setFilteredData(f);
     } 
     else {
+      f = contentsData;
       // k=[]
-      // f = contentsData;
       // for (var j=0; j<f.length; j++){
 
       //   k=[...k,onOff[(f[j].id.slice(2,3)-1)]]
       //     console.log(k)
         
       // }
-      // setOnOff(k)
+      setOnOff(a)
       setFilteredData(f);
     }
 
