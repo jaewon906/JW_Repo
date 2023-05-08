@@ -86,7 +86,7 @@
     height: 20px;
     background-color: rgb(252, 252, 252);
     border-radius: 5px;
-    box-shadow: 0px 0px 2px 1px rgb(207, 207, 207);
+    box-shadow: 1px 1px 2px 1px rgb(207, 207, 207);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,11 +106,11 @@
     top:70px;
 }
 .rightContentArea > .goTOSubscribe{
-    width: 334px;
+    width: 300px;
     height: 272px;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0px 0px 2px 1px rgb(207, 207, 207);
+    box-shadow: 1px 1px 2px 1px rgb(207, 207, 207);
     
 }
 .goTOSubscribe > .goTOSubscribeTxt{
@@ -139,11 +139,11 @@
     display: flex;
 }
 .rightContentArea > .cs{
-    width:334px;
+    width:300px;
     height:120px;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0px 0px 2px 1px rgb(207, 207, 207);
+    box-shadow: 1px 1px 2px 1px rgb(207, 207, 207);
     margin-top: 30px;
     display: flex;
     justify-content: space-around;
@@ -189,7 +189,7 @@
     width:100%;
     height:100%;
     border-radius: 60px;
-    box-shadow: 0px 0px 2px 1px rgb(192, 191, 191);
+    box-shadow: 1px 1px 2px rgb(192, 191, 191);
     transition: transform 0.5s ease-out
 }
 .contentIcon :hover{

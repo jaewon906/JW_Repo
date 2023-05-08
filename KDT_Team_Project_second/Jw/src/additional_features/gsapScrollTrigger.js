@@ -12,6 +12,8 @@ function gaspScrollTrigger(idx1, idx2, idx3, idx4, idx5, idx6, idx7) {
   const tl1 = gsap.timeline();
   tl1.to(idx7.current,{
     opacity:1, duration:1, delay:1.5
+  }).to(idx7.current,{
+    repeat:-1, delay:0.6, rotationZ:'3600deg',ease:'linear',transformOrigin:'center 26.9%'
   })
  
 
